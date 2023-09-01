@@ -1,0 +1,39 @@
+/*** couleurs
+* blanc cassé : #fafafa
+* vert : #91b06f
+* noir : #424242
+*/
+body {
+    background-color: #fafafa;
+    font-family: 'Source Sans 3', sans-serif;
+}
+
+.nav  {
+    display:flex;
+    height: 15vh;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.titreTemp a{
+    color:#91b06f;
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.navContainer a {
+    text-decoration: none;
+    margin:10px;
+    color:#424242;
+}
+
+.navContainer a:hover {
+    color:#91b06f;
+    transition: .2s ease;
+    
+}
+
+#active {
+    color:#91b06f;
+}
