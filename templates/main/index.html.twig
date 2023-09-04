@@ -4,5 +4,47 @@
 {% block navHome %}active{% endblock %}
 
 {% block body %}
-<h1>Index</h1>
+<div class="containerImgNav">
+    <!-- Image by upklyakon on Freepik -->
+    <img id="imgUnderNav" src="{{ asset('img/img_sous_nav.jpg') }}" alt="img sous nav">
+    <div class="textImgNav">
+    <p id="imgNavTitle">L'éco-pâturage, pensez-y !</p>
+    <b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure eos consectetur sunt, pariatur asperiores commodi tempore, esse nam vero iusto similique ipsam voluptatum sint praesentium quidem sequi quod maiores ex.</div>
+</b>
+</div>
+<br>
+<main>
+    <article class="articleHome row justify-content-between">
+        <div class="col-6">
+            <img src="{{ asset('img/img_article.jpg') }}" alt="img article" title="img article">
+        </div>
+        <div class="col-6">
+            <h2>C'est quoi l'éco-pâturage ?</h2>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem suscipit aperiam dicta mollitia, perferendis adipisci magnam, recusandae veritatis libero aliquid explicabo reprehenderit, ipsam facere enim doloribus voluptatem quidem hic. Harum!
+            Quos perferendis possimus nemo dolore cum magni molestiae itaque alias consequuntur placeat aperiam voluptatum iste, perspiciatis eius! Atque, modi. Necessitatibus debitis nobis odio accusantium! Architecto molestias officia suscipit consequuntur facilis.
+        </div>
+    </article>
+    <br><br>
+    <article class="articleHome row justify-content-between" style="text-align:right">
+        <div class="col-6">
+            <h2>Pourquoi l'éco-pâturage ?</h2>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem suscipit aperiam dicta mollitia, perferendis adipisci magnam, recusandae veritatis libero aliquid explicabo reprehenderit, ipsam facere enim doloribus voluptatem quidem hic. Harum!
+            Quos perferendis possimus nemo dolore cum magni molestiae itaque alias consequuntur placeat aperiam voluptatum iste, perspiciatis eius! Atque, modi. Necessitatibus debitis nobis odio accusantium! Architecto molestias officia suscipit consequuntur facilis.
+        </div>
+        <div class="col-6">
+            <img src="{{ asset('img/img_article.jpg') }}" alt="img article" title="img article">
+        </div>
+    </article>    
+    <br><br>
+    <article class="articleHome row justify-content-between">
+        <div class="col-6">
+            <img src="{{ asset('img/img_article.jpg') }}" alt="img article" title="img article">
+        </div>
+        <div class="col-6">
+            <h2>Troisième article</h2>
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Exercitationem suscipit aperiam dicta mollitia, perferendis adipisci magnam, recusandae veritatis libero aliquid explicabo reprehenderit, ipsam facere enim doloribus voluptatem quidem hic. Harum!
+            Quos perferendis possimus nemo dolore cum magni molestiae itaque alias consequuntur placeat aperiam voluptatum iste, perspiciatis eius! Atque, modi. Necessitatibus debitis nobis odio accusantium! Architecto molestias officia suscipit consequuntur facilis.
+        </div>
+    </article>
+</main>
 {% endblock %}
