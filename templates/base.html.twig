@@ -12,36 +12,59 @@
 		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
 
 		<!-- Font -->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Crimson+Text&family=Source+Sans+3&display=swap" rel="stylesheet">
+		<link href="https://fonts.cdnfonts.com/css/source-sans-pro?styles=14484,14489,14486,14490,14491,14485,14483,14482,14488,14487,14493,14492" rel="stylesheet">
 		
 		<!-- CSS/JS -->
 		<link rel="stylesheet" href="{{ asset('css/style.css') }}"> {% block stylesheets %}{% endblock %}{% block javascripts %}{% endblock %}
 		</head>
 
-		<body class="container">
-			<header>
-				<nav class="nav">
-					{# <div class="logoContainer">
-							<a href="{{ path('main_home') }}">
-								<img class="imgLogo" src="{{ asset('img/Banniere.jpg') }}" alt="Logo j'ai un bouc et y'm'sert">
-							</a>
-						</div> #}
+		<body>
+		<div class="content">
+				<header>
+					<nav class="nav container">
+						{# <div class="logoContainer">
+								<a href="{{ path('main_home') }}">
+									<img class="imgLogo" src="{{ asset('img/Banniere.jpg') }}" alt="Logo j'ai un bouc et y'm'sert">
+								</a>
+							</div> #}
 
-					<div class="titreTemp">
-						<a href="{{ path('main_home') }}">J'ai un bouc et y'm'sert</a>
+						<div class="titreTemp">
+							<a href="{{ path('main_home') }}">J'ai un bouc et y'm'sert</a>
+						</div>
+
+						<div class="navContainer">
+							<a class="navHome" id="{% block navHome %}{% endblock %}" href="{{ path('main_home') }}" style="">Accueil</a>
+							<a class="navServices" id="{% block navServices %}{% endblock %}" href="#">Prestations</a>
+							<a class="navAbout" id="{% block navAbout %}{% endblock %}" href="#">A propos</a>
+							<a class="navContact" id="{% block navContact %}{% endblock %}" href="{{ path('app_contact') }}">Contact</a>
+						</div>
+					</nav>
+
+				</header>
+			
+				{% block body %}{% endblock %}
+		</div>
+			<footer>
+			<div class="container">
+					<hr><br>
+					<div class="footerMain row justify-content-between align-items-center">
+						<div class="col-3">
+							<b>J'ai un bouc et y'm'sert (logo?)</b><br>
+							La baffonderie<br>
+							35370 LE PERTRE<br>
+							Tel: 06 72 24 86 99<br>
+							boucetymsert@orange.fr
+						</div>
+
+						<div class="col-3">
+							<b>Copyright&copy; J'ai un bouc et y'm'sert</b>
+						</div>
+
+						<div class="col-3">
+							<a href="#">Contact</a>
+						</div>
 					</div>
-
-					<div class="navContainer">
-						<a class="navHome" id="{% block navHome %}{% endblock %}" href="{{ path('main_home') }}" style="">Accueil</a>
-						<a class="navServices" id="{% block navServices %}{% endblock %}" href="#">Prestations</a>
-						<a class="navAbout" id="{% block navAbout %}{% endblock %}" href="#">A propos</a>
-						<a class="navContact" id="{% block navContact %}{% endblock %}" href="#">Contact</a>
-					</div>
-				</nav>
-
-			</header>
-			{% block body %}{% endblock %}
+			</div>
+			</footer>
 		</body>
 	</html>
