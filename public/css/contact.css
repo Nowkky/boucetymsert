@@ -1,3 +1,8 @@
+form {
+    width: 70%;
+    height: auto;
+}
+
 .form-control {
     width: 60vw;
     height: auto;
@@ -11,3 +16,35 @@
     justify-content: center;
     align-items: center;
 }  
+.formContact {
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.rowContact {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.formContact label {
+    display:block;
+}
+
+.radioContact label {
+    display:inline;
+    padding: 3px;
+}
+
+
+/* input[type="text"],
+input[type="email"],
+input[type="radio"],
+input[type="tel"] {
+    height: auto;
+    width: auto;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1019607843);
+    border:none;
+} */
