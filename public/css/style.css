@@ -34,6 +34,10 @@ footer {
     padding-bottom: 2em;
 }
 
+.footerMain {
+    color: #fafafa;
+}
+
 hr {
     margin:0;
 }

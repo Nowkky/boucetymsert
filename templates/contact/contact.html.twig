@@ -4,6 +4,13 @@
 {% block navContact %}active{% endblock %}
 
 {% block body %}
-<h1 style="height:100vh">Contact</h1>
+<div style="height:100vh">
+Contact
+
+{{ form_start(formContact) }}
+<button>Envoyer</button>
+{{ form_end(formContact) }}
+
+</div>
 
 {% endblock %}
