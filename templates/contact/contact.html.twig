@@ -8,6 +8,35 @@
 Contact
 
 {{ form_start(formContact) }}
+{{ form_errors(formContact) }}
+<div class="row">
+    {{ form_row(formContact.society)  }}
+</div>
+
+<div class="row">
+    {{ form_row(formContact.civility)  }}
+    {{ form_row(formContact.lastname)  }}
+    {{ form_row(formContact.firstname)  }}
+</div>
+
+<div class="row">
+    {{ form_row(formContact.email)  }}
+    {{ form_row(formContact.phone)  }}
+</div>
+
+<div class="row">
+    {{ form_row(formContact.address)  }}
+    {{ form_row(formContact.city)  }}
+    {{ form_row(formContact.postal)  }}
+</div>
+
+<div class="row">
+    {{ form_row(formContact.message)  }}
+</div>
+
+
+
+{{ form_widget(formContact) }}
 <button>Envoyer</button>
 {{ form_end(formContact) }}
 

@@ -21,6 +21,7 @@ class ContactType extends AbstractType
         [
             'label' => 'Société',
             'required' => false,
+            'attr' => array('id' => 'societe')
         ])
         ->add('civility', ChoiceType::class,
         [
