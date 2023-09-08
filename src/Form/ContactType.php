@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\ChoiceList\Factory\Cache\ChoiceLabel;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -19,8 +20,8 @@ class ContactType extends AbstractType
         $builder
         ->add('society', TextType::class,
         [
-            'label' => 'Société',
             'required' => false,
+            'attr' => ['placeholder' => 'Entreprise/Association', 'style' => 'bottom:0']
         ])
         ->add('civility', ChoiceType::class,
         [
@@ -28,47 +29,47 @@ class ContactType extends AbstractType
             'choices' => ['M.' => 'M.', 'Mme.' => 'Mme.'],
             'expanded' => true,
             'multiple' => false,
-            'required' => true
+            'required' => true,
         ])
         ->add('lastname', TextType::class,
         [
-            'label' => 'Nom*',
-            'required' => true
+            'required' => true,
+            'attr' => ['placeholder' => 'Votre nom*']
+            
         ])
         ->add('firstname', TextType::class,
         [
-            'label' => 'Prénom',
-            'required' => false
+            'required' => false,
+            'attr' => ['placeholder' => 'Votre prénom']
         ])
         ->add('email', EmailType::class,
         [
-            'label' => 'Votre adresse mail*',
-            'required' => true
+            'required' => true,
+            'attr' => ['placeholder' => 'Adresse mail*']
         ])
         ->add('phone', TelType::class,
         [
-            'label' => 'Téléphone',
             'required' => false,
+            'attr' => ['placeholder' => 'Téléphone']
         ])
-        ->add('address', TextType::class,
-        [
-            'label' => 'Adresse',
-            'required' => false,
-        ])
+        // ->add('address', TextType::class,
+        // [
+        //     'required' => false,
+        //     'attr' => ['placeholder' => 'Votre société']
+        // ])
         ->add('city', TextType::class,
         [
-            'label' => 'Ville',
             'required' => false,
+            'attr' => ['placeholder' => 'Ville de la demande*']
         ])
         ->add('postal', TextType::class,
         [
-            'label' => 'Code postal',
             'required' => false,
+            'attr' => ['placeholder' => 'Code postal']
         ])
         ->add('message', TextareaType::class, [
-            'label' => 'Votre message',
-            'attr' => ['rows' => 6, 'style' => 'width:100%'],
-            'required' => true
+            'attr' => ['style' => 'width:100%;height:10em;','placeholder' => 'Votre message*'],
+            'required' => true,
         ])
         ;
     }

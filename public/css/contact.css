@@ -1,6 +1,7 @@
 form {
     width: 70%;
     height: auto;
+    color:#424242;
 }
 
 .form-control {
@@ -26,14 +27,6 @@ form {
     padding: 3px;
 }
 
-form {
-    color:#424242;
-}
-
-form input {
-    margin-bottom: 3px;
-}
-
 .containerTitle {
     display:flex;
     justify-content: center;
@@ -52,5 +45,13 @@ form input {
 
 .contactTitle p {
     color:#424242;
+}
+
+.bodyContact form input[type="text"], input[type="email"], input[type="tel"], textarea {
+    border: 0.7px solid #8EBC40;
+    background-color: #fafafad0;
+    height: 2.3em;
+    width: 100%;
+    
 }
 

@@ -26,53 +26,52 @@
             {{ form_start(formContact) }}
             {{ form_errors(formContact) }}
 
-            <div class="row">
-                <div>
+            <div class="row justify-content-between">
+                <div class="col-8 col-md-5">
                     {{ form_label(formContact.civility) }}
                     <div class="radioContact">
                         {{ form_widget(formContact.civility) }}
                     </div>
                 </div>
-            </div>
-
-            <div class="row">
-                <div class="col-8 col-md-4">
-                    {{ form_row(formContact.lastname) }}
-                </div>
-                <div class="col-8 col-md-4">
-                    {{ form_row(formContact.firstname) }}
-                </div>
-                <div class="col-8 col-md-4">
-                    {{ form_row(formContact.society) }}
+                <div class="col-8 col-md-5">
+                    {{ form_widget(formContact.society) }}
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-8 col-md-4">
-                    {{ form_row(formContact.email) }}
+            <div class="row justify-content-between">
+                <div class="col-8 col-md-5">
+                    {{ form_widget(formContact.lastname) }}
                 </div>
-                <div class="col-8 col-md-4">
-                    {{ form_row(formContact.phone) }}
+                <div class="col-8 col-md-5">
+                    {{ form_widget(formContact.firstname) }}
                 </div>
                 
-            <div class="col-4"></div>
             </div>
 
-            <div class="row">
-                <div class="col-8 col-md-4">
-                    {{ form_row(formContact.address) }}
+            <div class="row justify-content-between">
+                <div class="col-8 col-md-5">
+                    {{ form_widget(formContact.email) }}
+                </div>
+                <div class="col-8 col-md-5">
+                    {{ form_widget(formContact.phone) }}
+                </div>
+            </div>
+
+            <div class="row justify-content-between">
+                {# <div class="col-8 col-md-4">
+                    {{ form_widget(formContact.address) }}
+                </div>             #}
+                <div class="col-8 col-md-5">
+                    {{ form_widget(formContact.city) }}
                 </div>            
-                <div class="col-8 col-md-4">
-                    {{ form_row(formContact.city) }}
-                </div>            
-                <div class="col-8 col-md-4">
-                    {{ form_row(formContact.postal) }}
+                <div class="col-8 col-md-5">
+                    {{ form_widget(formContact.postal) }}
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-12">
-                    {{ form_row(formContact.message) }}
+                    {{ form_widget(formContact.message) }}
                 </div>
             </div>
 
