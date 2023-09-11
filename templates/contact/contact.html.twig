@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Contact |&nbsp; {{ parent() }}{% endblock %}
+{% block title %}Contact |&nbsp;{{ parent() }}{% endblock %}
 {% block navContact %}active{% endblock %}
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('css/contact.css') }}">
@@ -15,44 +15,45 @@
         {% endfor %}
         <div class="container containerTitle">
             <div class="contactTitle">
-                <h1><b>Contact</b></h1>
+                {# <h1><b>Contact</b></h1> #}
                 <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti in dolorem exercitationem minus molestiae assumenda eveniet mollitia quia accusantium doloribus maiores amet excepturi eos nobis distinctio, molestias impedit. Numquam, ratione?</p>
             </div>
         </div>
 <div class="container bodyContact">
     <div class="form-control">
         <div class="d-flex justify-content-center align-items-center flex-wrap">
+        <h1><b>Contactez-nous !</b></h1>
 
             {{ form_start(formContact) }}
             {{ form_errors(formContact) }}
 
             <div class="row justify-content-between">
-                <div class="col-8 col-md-5">
+                <div class="col-8 col-md-6">
                     {{ form_label(formContact.civility) }}
                     <div class="radioContact">
                         {{ form_widget(formContact.civility) }}
                     </div>
                 </div>
-                <div class="col-8 col-md-5">
+                <div class="col-8 col-md-6">
                     {{ form_widget(formContact.society) }}
                 </div>
             </div>
 
             <div class="row justify-content-between">
-                <div class="col-8 col-md-5">
+                <div class="col-8 col-md-6">
                     {{ form_widget(formContact.lastname) }}
                 </div>
-                <div class="col-8 col-md-5">
+                <div class="col-8 col-md-6">
                     {{ form_widget(formContact.firstname) }}
                 </div>
                 
             </div>
 
             <div class="row justify-content-between">
-                <div class="col-8 col-md-5">
+                <div class="col-8 col-md-6">
                     {{ form_widget(formContact.email) }}
                 </div>
-                <div class="col-8 col-md-5">
+                <div class="col-8 col-md-6">
                     {{ form_widget(formContact.phone) }}
                 </div>
             </div>
@@ -61,10 +62,10 @@
                 {# <div class="col-8 col-md-4">
                     {{ form_widget(formContact.address) }}
                 </div>             #}
-                <div class="col-8 col-md-5">
+                <div class="col-8 col-md-6">
                     {{ form_widget(formContact.city) }}
                 </div>            
-                <div class="col-8 col-md-5">
+                <div class="col-8 col-md-6">
                     {{ form_widget(formContact.postal) }}
                 </div>
             </div>
@@ -77,8 +78,10 @@
 
 
 
-            {{ form_widget(formContact) }}
-            <button>Envoyer</button>
+            <div class="d-grid gap-2 col-6 mx-auto">
+                {{ form_widget(formContact) }}
+                 <button class="btn btn-primary">Envoyer</button>
+            </div>
             {{ form_end(formContact) }}
         </div>
     </div>

@@ -12,3 +12,8 @@ DEPLOIEMENT :
     Mail 
     - Vérifier email d'envoi
     - Changer email d'arrivée
+
+IDEES : 
+    - Témoignages, avis clients
+    - Carte des chantiers réalisés?
+    - Système de demande de devis ?
