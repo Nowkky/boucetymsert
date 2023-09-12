@@ -16,7 +16,6 @@ form {
     display:flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 10em;
 }  
 
 .formContact label {
@@ -66,7 +65,7 @@ form input[type="text"], form input[type="email"], form input[type="tel"], form 
 
 form input[type="text"]::placeholder, form input[type="email"]::placeholder, form input[type="tel"]::placeholder, form textarea::placeholder {
     color: #424242ae;
-    font-size: small;
+   
 }
 
 form .btn {
@@ -84,4 +83,7 @@ form .btn {
     --bs-btn-active-border-color: #8EBC40;
 }
 
+.alert {
+    padding-left: 3em;
 }
+

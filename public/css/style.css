@@ -3,6 +3,7 @@
 * vert : #91b06f / #8EBC40
 * noir : #424242
 */
+
 body {
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -25,7 +26,7 @@ header {
 
 main {
     padding-top: 5em;
-    padding-bottom: 15em;
+    padding-bottom: 10em;
 }
 
 footer {
