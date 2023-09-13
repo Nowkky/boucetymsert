@@ -2,10 +2,9 @@
 
 {% block title %}Contact |&nbsp;{{ parent() }}
 {% endblock %}
-{% block navContact %}active
-{% endblock %}
+{% block navContact %}active{% endblock %}
 {% block stylesheets %}
-	<link rel="stylesheet" href="{{ asset('css/contact.css') }}">
+	<link rel="stylesheet" href="{{ asset('css/form.css') }}">
 {% endblock %}
 
 
@@ -16,14 +15,7 @@
 				{{ message }}
 			</div>
 		{% endfor %}
-		<div class="container containerTitle">
-			<div
-				class="contactTitle">
-				{# <h1><b>Contact</b></h1> #}
-				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti in dolorem exercitationem minus molestiae assumenda eveniet mollitia quia accusantium doloribus maiores amet excepturi eos nobis distinctio, molestias impedit. Numquam, ratione?</p>
-			</div>
-		</div>
-		<div class="container bodyContact">
+		<div class="container bodyForm">
 			<div class="form-control">
 				<div class="d-flex justify-content-center align-items-center flex-wrap">
 
@@ -31,6 +23,7 @@
 					<h1>
 						<b>Contactez-nous !</b>
 					</h1>
+					<p>Remplissez ce formulaire et nous reviendrons vers vous dès que possible !</p>
 					{{ form_errors(formContact) }}
 
 					<div class="row justify-content-between">

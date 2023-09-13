@@ -47,7 +47,7 @@ hr {
     display:flex;
     height: 12vh;
     justify-content: space-between;
-    align-content: center;
+    align-items: center;
 }
 
 .titreTemp a{
@@ -117,4 +117,8 @@ hr {
     color: #8EBC40;
 }
 
-  
+.dropdown-item {
+    width: auto;
+    --bs-dropdown-link-active-color: #fafafa;
+    --bs-dropdown-link-active-bg: #8EBC40;
+}

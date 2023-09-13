@@ -11,12 +11,21 @@ form {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1019607843);
 }
 
-.bodyContact {
+.bodyForm {
     min-height: 500px;
     display:flex;
     justify-content: center;
     align-items: center;
-}  
+    padding-bottom: 10em;
+}
+
+.bodyFormLogin {
+    min-height: 80vh;;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 10em;
+}
 
 .formContact label {
     display:block;
@@ -47,13 +56,13 @@ form {
     color:#424242;
 }
 
-.bodyContact h1 {
+form h1 {
     color:#8EBC40;
     margin:1em;
     text-align: center;
 }
 
-form input[type="text"], form input[type="email"], form input[type="tel"], form textarea {
+form input[type="text"], form input[type="email"], form input[type="tel"], form input[type="password"], form textarea {
     height: 2.3em;
     width: 100%;
     border-radius: var(--bs-border-radius);
@@ -63,9 +72,8 @@ form input[type="text"], form input[type="email"], form input[type="tel"], form 
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1019607843);
 }
 
-form input[type="text"]::placeholder, form input[type="email"]::placeholder, form input[type="tel"]::placeholder, form textarea::placeholder {
+form input[type="text"]::placeholder, form input[type="email"]::placeholder, form input[type="tel"]::placeholder, form input[type="password"]::placeholder, form textarea::placeholder {
     color: #424242ae;
-   
 }
 
 form .btn {
@@ -83,7 +91,6 @@ form .btn {
     --bs-btn-active-border-color: #8EBC40;
 }
 
-.alert {
-    padding-left: 3em;
+.links {
+    padding-bottom: 2em;
 }
-
