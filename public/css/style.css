@@ -122,3 +122,11 @@ hr {
     --bs-dropdown-link-active-color: #fafafa;
     --bs-dropdown-link-active-bg: #8EBC40;
 }
+
+.round-img{
+    height: 30px;
+    max-width: 30px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1019607843);
+ }

@@ -30,25 +30,25 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $password = null;
 
     #[ORM\Column(length: 50, nullable: true)]
-    private ?string $Firstname = null;
+    private ?string $firstname = null;
 
     #[ORM\Column(length: 50)]
-    private ?string $Lastname = null;
+    private ?string $lastname = null;
 
     #[ORM\Column(length: 4)]
-    private ?string $Civility = null;
+    private ?string $civility = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $Phone = null;
+    private ?int $phone = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $Society = null;
+    private ?string $society = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $Postal = null;
+    private ?int $postal = null;
 
     #[ORM\Column(length: 255, nullable: true)]
-    private ?string $City = null;
+    private ?string $city = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $ProfilImage = "default_profile_pic.png";
@@ -125,96 +125,99 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function getFirstname(): ?string
     {
-        return $this->Firstname;
+        return $this->firstname;
     }
 
-    public function setFirstname(?string $Firstname): static
+    public function setFirstname(?string $firstname): static
     {
-        $this->Firstname = $Firstname;
+        $this->firstname = $firstname;
 
         return $this;
     }
 
     public function getLastname(): ?string
     {
-        return $this->Lastname;
+        return $this->lastname;
     }
 
-    public function setLastname(string $Lastname): static
+    public function setLastname(string $lastname): static
     {
-        $this->Lastname = $Lastname;
+        $this->lastname = $lastname;
 
         return $this;
     }
 
     public function getCivility(): ?string
     {
-        return $this->Civility;
+        return $this->civility;
     }
 
-    public function setCivility(string $Civility): static
+    public function setCivility(string $civility): static
     {
-        $this->Civility = $Civility;
+        $this->civility = $civility;
 
         return $this;
     }
 
     public function getPhone(): ?int
     {
-        return $this->Phone;
+        return $this->phone;
     }
 
-    public function setPhone(?int $Phone): static
+    public function setPhone(?int $phone): static
     {
-        $this->Phone = $Phone;
+        $this->phone = $phone;
 
         return $this;
     }
 
     public function getSociety(): ?string
     {
-        return $this->Society;
+        return $this->society;
     }
 
-    public function setSociety(?string $Society): static
+    public function setSociety(?string $society): static
     {
-        $this->Society = $Society;
+        $this->society = $society;
 
         return $this;
     }
 
     public function getPostal(): ?int
     {
-        return $this->Postal;
+        return $this->postal;
     }
 
-    public function setPostal(?int $Postal): static
+    public function setPostal(?int $postal): static
     {
-        $this->Postal = $Postal;
+        $this->postal = $postal;
 
         return $this;
     }
 
     public function getCity(): ?string
     {
-        return $this->City;
+        return $this->city;
     }
 
-    public function setCity(?string $City): static
+    public function setCity(?string $city): static
     {
-        $this->City = $City;
+        $this->city = $city;
 
         return $this;
     }
 
     public function getProfilImage(): ?string
     {
-        return $this->ProfilImage;
+        return $this->ProfilImage
+;
     }
 
     public function setProfilImage(?string $ProfilImage): static
     {
-        $this->ProfilImage = $ProfilImage;
+        $this->ProfilImage
+ = $ProfilImage
+;
 
         return $this;
     }

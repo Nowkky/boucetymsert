@@ -50,12 +50,12 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ]
             ])
-            ->add('Society', TextType::class,
+            ->add('society', TextType::class,
             [
                 'required' => false,
                 'attr' => ['placeholder' => 'Entreprise/Association', 'style' => 'bottom:0']
             ])
-            ->add('Civility', ChoiceType::class,
+            ->add('civility', ChoiceType::class,
             [
                 'label' => 'Civilité*',
                 'choices' => ['M.' => 'M.', 'Mme.' => 'Mme.'],
@@ -63,28 +63,28 @@ class RegistrationFormType extends AbstractType
                 'multiple' => false,
                 'required' => true,
             ])
-            ->add('Lastname', TextType::class,
+            ->add('lastname', TextType::class,
             [
                 'required' => true,
                 'attr' => ['placeholder' => 'Votre nom*']
                 
             ])
-            ->add('Firstname', TextType::class,
+            ->add('firstname', TextType::class,
             [
                 'required' => false,
                 'attr' => ['placeholder' => 'Votre prénom']
             ])
-            ->add('Phone', TelType::class,
+            ->add('phone', TelType::class,
             [
                 'required' => false,
                 'attr' => ['placeholder' => 'Téléphone']
             ])
-            ->add('City', TextType::class,
+            ->add('city', TextType::class,
             [
                 'required' => false,
                 'attr' => ['placeholder' => 'Ville de la demande*']
             ])
-            ->add('Postal', TextType::class,
+            ->add('postal', TextType::class,
             [
                 'required' => false,
                 'attr' => ['placeholder' => 'Code postal']

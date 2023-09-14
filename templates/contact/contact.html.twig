@@ -9,12 +9,12 @@
 
 
 {% block body %}
-	<main>
 		{% for message in app.flashes('success') %}
 			<div class="alert alert-success">
 				{{ message }}
 			</div>
 		{% endfor %}
+	<main>
 		<div class="container bodyForm">
 			<div class="form-control">
 				<div class="d-flex justify-content-center align-items-center flex-wrap">
