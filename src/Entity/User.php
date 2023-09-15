@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -52,6 +54,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $ProfilImage = "default_profile_pic.png";
+
+    #[ORM\OneToMany(mappedBy: 'author', targetEntity: Messages::class, orphanRemoval: true)]
+    private Collection $sent;
+
+    #[ORM\OneToMany(mappedBy: 'receiver', targetEntity: Messages::class, orphanRemoval: true)]
+    private Collection $received;
+
+    public function __construct()
+    {
+        $this->sent = new ArrayCollection();
+        $this->received = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -218,6 +232,66 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         $this->ProfilImage
  = $ProfilImage
 ;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Messages>
+     */
+    public function getSent(): Collection
+    {
+        return $this->sent;
+    }
+
+    public function addSent(Messages $sent): static
+    {
+        if (!$this->sent->contains($sent)) {
+            $this->sent->add($sent);
+            $sent->setAuthor($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSent(Messages $sent): static
+    {
+        if ($this->sent->removeElement($sent)) {
+            // set the owning side to null (unless already changed)
+            if ($sent->getAuthor() === $this) {
+                $sent->setAuthor(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Messages>
+     */
+    public function getReceived(): Collection
+    {
+        return $this->received;
+    }
+
+    public function addReceived(Messages $received): static
+    {
+        if (!$this->received->contains($received)) {
+            $this->received->add($received);
+            $received->setReceiver($this);
+        }
+
+        return $this;
+    }
+
+    public function removeReceived(Messages $received): static
+    {
+        if ($this->received->removeElement($received)) {
+            // set the owning side to null (unless already changed)
+            if ($received->getReceiver() === $this) {
+                $received->setReceiver(null);
+            }
+        }
 
         return $this;
     }

@@ -10,6 +10,7 @@ DEPLOIEMENT :
     Mail 
     - Vérifier email d'envoi
     - Changer email d'arrivée
+    - Asybchrone? Vérifier que le mail s'envoi bien
 
 IDEES : 
     - Témoignages, avis clients
@@ -24,3 +25,17 @@ Page profil?
 Rendre image profil ronde sur site et plus grande ronde sur profil
 
 Email confirmation d'email ? Email d'inscription ?
+
+Mot de passe oublié
+
+Suppression compte
+
+VOIR RGPD
+
+ROLES
+
+Sur page admin messagerie : 
+    informations de la personne
+    liste des conversations
+
+RESTREINDRE ACCES PAGES AVEC ROLES
