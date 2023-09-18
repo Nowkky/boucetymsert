@@ -34,12 +34,16 @@ class ChangePasswordFormType extends AbstractType
                             'max' => 4096,
                         ]),
                     ],
-                    'placeholder' => 'Nouveau mot de passe',
-                    'class' => 'col-12'
+                    'attr' => [
+                        'placeholder' => 'Nouveau mot de passe',
+                    'class' => 'col-12'], 
+                    'label' => false
                 ],
                 'second_options' => [
-                    'placeholder' => 'Confirmation',
-                    'class' => 'col-12'
+                    'attr' => [
+                        'placeholder' => 'Confirmation',
+                    'class' => 'col-12'], 
+                    'label' => false
                 ],
                 'invalid_message' => 'Les deux mots de passes ne correspondent pas.',
                 // Instead of being set onto the object directly,

@@ -10,12 +10,15 @@
 	<div class="container bodyFormLogin">
 		<div class="form-control">
 			<div class="d-flex justify-content-center align-items-center flex-wrap">
-				<h1>Changement de votre mot de passe</h1>
-
 				{{ form_start(resetForm) }}
+				<h1><b>Changement de votre mot de passe</b></h1>
+
 				{{ form_widget(resetForm.plainPassword) }}
-				<button class="btn btn-primary">Modifier</button>
-				{{ form_end(resetForm) }}
+
+                <div class="d-grid gap-2 col-6 mx-auto">
+				    <button class="btn btn-primary">Modifier</button>
+				</div>
+                {{ form_end(resetForm) }}
 			</div>
 		</div>
 	</div>
