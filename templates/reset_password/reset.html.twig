@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Changement de mot de passe |&nbsp;{{ parent() }}{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/form.css') }}">
+{% endblock %}
+
+{% block body %}
+
+	<div class="container bodyFormLogin">
+		<div class="form-control">
+			<div class="d-flex justify-content-center align-items-center flex-wrap">
+				<h1>Changement de votre mot de passe</h1>
+
+				{{ form_start(resetForm) }}
+				{{ form_widget(resetForm.plainPassword) }}
+				<button class="btn btn-primary">Modifier</button>
+				{{ form_end(resetForm) }}
+			</div>
+		</div>
+	</div>
+
+{% endblock %}

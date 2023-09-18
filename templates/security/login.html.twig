@@ -12,11 +12,12 @@
         <div class="form-control">
             <div class="d-flex justify-content-center align-items-center flex-wrap">
                 <form method="post">
+                    <h1><b>Connexion</b></h1>
+
                     {% if error %}
                         <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
                     {% endif %}
 
-                    <h1><b>Connexion</b></h1>
                     <input type="email" value="{{ last_username }}" name="email" autocomplete="email" placeholder="Adresse mail" required>
                     <input type="password" name="password" autocomplete="current-password" placeholder="Mot de passe" required>
 
@@ -33,7 +34,7 @@
                     <div class="text-center links">
                         <a href="{{ path('app_register') }}">Pas encore inscrit ?</a>
                         &nbsp;|&nbsp;
-                        <a href="#">Mot de passe oublié</a>
+                        <a href="{{ path('app_forgot_password_request') }}">Mot de passe oublié</a>
                     </div>
                         
                 </form>
