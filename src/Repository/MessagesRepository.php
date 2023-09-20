@@ -29,7 +29,9 @@ class MessagesRepository extends ServiceEntityRepository
    {
        return $this->createQueryBuilder('m')
            ->where('m.author = :author')
+           ->orWhere('m.author = :receiver')
            ->andWhere('m.receiver = :receiver')
+           ->orWhere('m.receiver = :author')
            ->setParameters(['author' => $author, 'receiver' => $receiver])
            ->orderBy('m.created_at', 'ASC')
            ->getQuery()

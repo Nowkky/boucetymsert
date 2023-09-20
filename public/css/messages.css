@@ -6,8 +6,13 @@
 }
 
 .topMessages {
-    height: 100%;
+    height: 90%;
     margin-bottom: 1em;
+    overflow-y: auto;
+}
+
+.botMessages {
+    height: 10%;
 }
 
 .topMessagesContent {
@@ -16,6 +21,7 @@
     background-color: #fafafa;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1019607843);
     height: 100%;
+    width: 100%;
 }
 
 .form-control {
@@ -66,4 +72,53 @@ h1 {
     color:#8EBC40;
     margin:1em;
     text-align: center;
+}
+
+.leftMessage {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: row;
+    margin-left:1em;
+    margin-bottom:1em;
+}
+
+.rightMessage {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    flex-direction: row;
+    margin-right:1em;
+    margin-bottom:1em;
+}
+
+.messageList {
+    display:flex;
+    flex-direction: column;
+}
+
+ul {
+    list-style-position: inside;
+    padding-left: 0;
+}
+
+.rightMessage > p {
+    background-color: darkkhaki;
+    border-top-left-radius: var(--bs-border-radius);
+    border-top-right-radius: var(--bs-border-radius);
+    border-bottom-left-radius: var(--bs-border-radius);
+    padding-left: 1em;
+    padding-right: 1em;
+    max-width: 70%;
+}
+
+.leftMessage > p {
+    background-color: cadetblue;
+    color: #fafafa;
+    border-top-left-radius: var(--bs-border-radius);
+    border-top-right-radius: var(--bs-border-radius);
+    border-bottom-right-radius: var(--bs-border-radius);
+    padding-left: 1em;
+    padding-right: 1em;
+    max-width: 70%;
 }

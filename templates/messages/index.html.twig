@@ -21,9 +21,20 @@
 								Pas encore de messages !
 
 								{% else %}
-								<ul>
+								<ul class="messageList">
 									{% for message in messagesList %}
-										<li>{{ message.author.email }} - {{ message.receiver.email }} - {{ message.content }} - {{ message.createdat|date("d/m/Y à H:i:s")}}</li>
+										<li class="
+											{% if message.author == app.user %}
+												rightMessage
+												
+												{% else %}
+													leftMessage
+											{% endif %}
+										">
+										<p class="col-xs-12">
+											{{ message.author.email }} - {{ message.receiver.email }} - {{ message.content }} - {{ message.createdat|date("d/m/Y à H:i:s")}}
+										</p>
+										</li>
 									{% endfor %}
 								</ul>
 							{% endif %}
@@ -45,6 +56,7 @@
 					{{ form_end(formMessage) }}
 			</div>	
 		</div>
+
 	</div>
 </main>
 {% endblock %}
