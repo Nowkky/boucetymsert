@@ -10,22 +10,34 @@
 
 {% block body %}
 <main>
-	<div class="container bodyFormLogin">
+	<div class="container bodyMessages">
 		<div class="form-control">
 				<h1><b>Messagerie</b></h1>
 			<div class="col containerMessages d-flex flex-column">
 				<div class="row topMessages">
 					<div class="col-12 col-md-12">
-						Messages
+						<div class="topMessagesContent">
+							{% if messagesList is empty %}
+								Pas encore de messages !
+
+								{% else %}
+								<ul>
+									{% for message in messagesList %}
+										<li>{{ message.author.email }} - {{ message.receiver.email }} - {{ message.content }} - {{ message.createdat|date("d/m/Y à H:i:s")}}</li>
+									{% endfor %}
+								</ul>
+							{% endif %}
+							
+						</div>
 					</div>
 				</div>
 
 					{{ form_start(formMessage) }}
 				<div class="row botMessages">
-					<div class="col-10 col-md-10">
+					<div class="col-12 col-md-10">
 						{{ form_widget(formMessage.content) }}
 					</div>
-					<div class="col-2 col-md-2">
+					<div class="col-12 col-md-2">
 						{{ form_widget(formMessage) }}
 						<button class="btn btn-primary">Envoyer</button>
 					</div>
