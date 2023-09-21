@@ -31,14 +31,13 @@
 													leftMessage
 											{% endif %}
 										">
-										<p class="col-xs-12">
+										<p class="">
 											{{ message.author.email }} - {{ message.receiver.email }} - {{ message.content }} - {{ message.createdat|date("d/m/Y à H:i:s")}}
 										</p>
 										</li>
 									{% endfor %}
 								</ul>
 							{% endif %}
-							
 						</div>
 					</div>
 				</div>
