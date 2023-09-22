@@ -5,16 +5,18 @@
 {% block navMessagerie %}active{% endblock %}
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{ asset('css/messages.css') }}">
-
+{% endblock %}
+{% block javascripts %}
+	<script src="{{ asset('js/messages.js') }}" defer></script>
 {% endblock %}
 
 {% block body %}
 <main>
-	<div class="container bodyMessages">
-		<div class="form-control">
+	<div class="container bodyMessages col-12 col-md-8">
+		<div class="form-control col-12 col-md-8">
 				<h1><b>Messagerie</b></h1>
 			<div class="col containerMessages d-flex flex-column">
-				<div class="row topMessages">
+				<div class="row topMessages" id="divMessages">
 					<div class="col-12 col-md-12">
 						<div class="topMessagesContent">
 							{% if messagesList is empty %}
@@ -23,6 +25,7 @@
 								{% else %}
 								<ul class="messageList">
 									{% for message in messagesList %}
+										{{ message.createdat|date("d F Y") }}
 										<li class="
 											{% if message.author == app.user %}
 												rightMessage
@@ -31,9 +34,8 @@
 													leftMessage
 											{% endif %}
 										">
-										<p class="">
-											{{ message.author.email }} - {{ message.receiver.email }} - {{ message.content }} - {{ message.createdat|date("d/m/Y à H:i:s")}}
-										</p>
+										<p>{{ message.content }}</p>
+										<span title="Envoyé le {{ message.createdat|date("d/m/Y à H:i:s")}}">{{ message.createdat|date("H:i:s")}}</span>
 										</li>
 									{% endfor %}
 								</ul>
