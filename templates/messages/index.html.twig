@@ -24,8 +24,26 @@
 
 								{% else %}
 								<ul class="messageList">
+									 {# chercher comment mettre premiere date du premier index du tableau #}
+										
 									{% for message in messagesList %}
-										{{ message.createdat|date("d F Y") }}
+										{% if loop.first %}
+											{% set previousDate = message.createdat %}
+											<div class="date">
+												<span>
+													{{ message.createdat|format_datetime(locale='fr',pattern="dd MMMM YYYY") }}
+												</span>
+											</div>
+										{% endif %}
+										
+										{% if previousDate|date("d") is not same as(message.createdat|date("d")) %}
+											<div class="date">
+												<span>
+													{{ message.createdat|format_datetime(locale='fr',pattern="dd MMMM YYYY") }}
+												</span>
+											</div>
+										{% endif %}
+										
 										<li class="
 											{% if message.author == app.user %}
 												rightMessage
@@ -37,6 +55,7 @@
 										<p>{{ message.content }}</p>
 										<span title="Envoyé le {{ message.createdat|date("d/m/Y à H:i:s")}}">{{ message.createdat|date("H:i:s")}}</span>
 										</li>
+										{% set previousDate = message.createdat %}
 									{% endfor %}
 								</ul>
 							{% endif %}
