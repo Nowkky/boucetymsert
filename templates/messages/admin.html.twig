@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Messagerie administrateur |&nbsp;{{ parent() }}
+{% endblock %}
+{% block navAdminMessagerie %}active
+{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/messages.css') }}">
+{% endblock %}
+{% block javascripts %}
+	<script src="{{ asset('js/messages.js') }}" defer></script>
+{% endblock %}
+
+{% block body %}
+	<main>
+		<div class="container bodyMessages col-12 col-md-10">
+			<div class="form-control col-12 col-md-8">
+				<h1>
+					<b>Messagerie</b>
+				</h1>
+				<div class="col containerMessages d-flex flex-row flex-wrap">
+					<div class="leftMessagerie col-12 col-md-3">
+						<div class="userListMessages">
+							<ul>
+								<li></li>
+							</ul>
+						</div>
+					</div>
+
+					<div class="rightMessagerie col-12 col-md-9">
+						<div class="row topMessages" id="divMessages">
+							<div class="col-12 col-md-12">
+								<div class="topMessagesContent">
+									{% if messagesList is empty %}
+										Pas encore de messages !
+
+									{% else %}
+										<ul class="messageList">
+											{% for message in messagesList %}
+												{% if loop.first %}
+													{% set previousDate = message.createdat %}
+													<div class="date">
+														<span>
+															{{ message.createdat|format_datetime(locale='fr',pattern="dd MMMM YYYY") }}
+														</span>
+													</div>
+												{% endif %}
+
+												{% if previousDate|date("d") is not same as(message.createdat|date("d")) %}
+													<div class="date">
+														<span>
+															{{ message.createdat|format_datetime(locale='fr',pattern="dd MMMM YYYY") }}
+														</span>
+													</div>
+												{% endif %}
+
+												<li class="
+																										{% if message.author == app.user %}
+																											rightMessage
+														
+																											{% else %}
+																												leftMessage
+																										{% endif %}
+																									">
+													<p>{{ message.content }}</p>
+													<span title="Envoyé le {{ message.createdat|date(" d/m/y à h:i:s")}}">{{ message.createdat|date("H:i:s")}}</span>
+												</li>
+												{% set previousDate = message.createdat %}
+											{% endfor %}
+										</ul>
+									{% endif %}
+								</div>
+							</div>
+						</div>
+
+						{{ form_start(formMessage) }}
+						<div class="row botMessages">
+							<div class="col-12 col-md-10">
+								{{ form_widget(formMessage.content) }}
+							</div>
+							<div class="col-12 col-md-2">
+								{{ form_widget(formMessage) }}
+								<button class="btn btn-primary">Envoyer</button>
+							</div>
+						</div>
+						{{ form_end(formMessage) }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</main>{% endblock %}
