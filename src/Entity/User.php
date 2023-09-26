@@ -61,10 +61,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'receiver', targetEntity: Messages::class, orphanRemoval: true)]
     private Collection $received;
 
+    #[ORM\ManyToMany(targetEntity: Conversation::class, mappedBy: 'Client')]
+    private Collection $conversations;
+
     public function __construct()
     {
         $this->sent = new ArrayCollection();
         $this->received = new ArrayCollection();
+        $this->conversations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -267,30 +271,27 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, Messages>
+     * @return Collection<int, Conversation>
      */
-    public function getReceived(): Collection
+    public function getConversations(): Collection
     {
-        return $this->received;
+        return $this->conversations;
     }
 
-    public function addReceived(Messages $received): static
+    public function addConversation(Conversation $conversation): static
     {
-        if (!$this->received->contains($received)) {
-            $this->received->add($received);
-            $received->setReceiver($this);
+        if (!$this->conversations->contains($conversation)) {
+            $this->conversations->add($conversation);
+            $conversation->addClient($this);
         }
 
         return $this;
     }
 
-    public function removeReceived(Messages $received): static
+    public function removeConversation(Conversation $conversation): static
     {
-        if ($this->received->removeElement($received)) {
-            // set the owning side to null (unless already changed)
-            if ($received->getReceiver() === $this) {
-                $received->setReceiver(null);
-            }
+        if ($this->conversations->removeElement($conversation)) {
+            $conversation->removeClient($this);
         }
 
         return $this;

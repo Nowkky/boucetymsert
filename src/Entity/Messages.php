@@ -20,10 +20,6 @@ class Messages
     #[ORM\JoinColumn(nullable: false)]
     private ?User $author = null;
 
-    #[ORM\ManyToOne(inversedBy: 'received')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?User $receiver = null;
-
     #[ORM\Column(type: Types::TEXT)]
     private ?string $content = null;
 
@@ -32,6 +28,10 @@ class Messages
 
     #[ORM\Column(nullable: true)]
     private ?\DateTimeImmutable $read_at = null;
+
+    #[ORM\ManyToOne(inversedBy: 'messages')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Conversation $conversation = null;
 
     public function __construct() {
         $this->created_at = new \DateTimeImmutable();
@@ -50,18 +50,6 @@ class Messages
     public function setAuthor(?User $author): static
     {
         $this->author = $author;
-
-        return $this;
-    }
-
-    public function getReceiver(): ?User
-    {
-        return $this->receiver;
-    }
-
-    public function setReceiver(?User $receiver): static
-    {
-        $this->receiver = $receiver;
 
         return $this;
     }
@@ -98,6 +86,18 @@ class Messages
     public function setReadAt(?\DateTimeImmutable $read_at): static
     {
         $this->read_at = $read_at;
+
+        return $this;
+    }
+
+    public function getConversation(): ?Conversation
+    {
+        return $this->conversation;
+    }
+
+    public function setConversation(?Conversation $conversation): static
+    {
+        $this->conversation = $conversation;
 
         return $this;
     }

@@ -21,13 +21,15 @@
 				<div class="col containerMessages d-flex flex-row flex-wrap">
 					<div class="leftMessagerie col-12 col-md-3">
 						<div class="userListMessages">
-							<ul>
-								<li></li>
-							</ul>
+								<ul>
+							{% for conversation in listConversation %}
+									<li>{{  }}</li>
+							{% endfor %}
+								</ul>
 						</div>
 					</div>
 
-					<div class="rightMessagerie col-12 col-md-9">
+					{# <div class="rightMessagerie col-12 col-md-9">
 						<div class="row topMessages" id="divMessages">
 							<div class="col-12 col-md-12">
 								<div class="topMessagesContent">
@@ -84,7 +86,7 @@
 							</div>
 						</div>
 						{{ form_end(formMessage) }}
-					</div>
+					</div> #}
 				</div>
 			</div>
 		</div>
