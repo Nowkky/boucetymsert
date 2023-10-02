@@ -22,9 +22,32 @@
 					<div class="leftMessagerie col-12 col-md-3">
 						<div class="userListMessages">
 								<ul>
-								<li><pre>
-									{{ dump(listConversation) }}
-								</pre></li>
+									{% for conversation in listConversation %}
+									<li>
+										<span><b>
+										{{ conversation.user.civility }} {{ conversation.user.lastname }}
+										</b>
+										
+										{% if conversation.user.society != null %}  ({{ conversation.user.society }}){% endif %}
+											
+										</span>
+										<span class="previewMessageContent">
+											{% for message in conversation.messages %}
+												{% if loop.last %}
+													{{ message.content }}
+												{% endif %}
+											{% endfor %}
+										</span>
+										<span class="previewMessageDate">
+										{% for message in conversation.messages %}
+												{% if loop.last %}
+													{{ message.createdat|date(" d/m/y à h:i:s") }}
+												{% endif %}
+											{% endfor %}
+										</span>
+									</li>
+
+									{% endfor %}
 								</ul>
 						</div>
 					</div>

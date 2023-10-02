@@ -27,15 +27,13 @@ class MessagesController extends AbstractController
             $repoConversation = $entityManager->getRepository(Conversation::class);
 
             //Vérification si une conversation existe avec cet utilisateur, si non, la créé
-            if ($repoConversation->findConversation($user) != null) {
-                $conversation = $repoConversation->find($user);
+            if ($user->getConversation() != null) {
+                $conversation = $user->getConversation();
             } else {
                 $conversation = new Conversation();
                 $conversation->setUser($user);
                 $entityManager->persist($conversation);
                 $entityManager->flush();
-
-                $conversation = $repoConversation->find($user);
             }
 
             $message = new Messages();
@@ -50,6 +48,7 @@ class MessagesController extends AbstractController
                 
                 $entityManager->persist($message);
                 $entityManager->flush();
+                return $this->redirect($request->getUri());
             }
             
             $messagesList = $conversation->getMessages();
@@ -69,11 +68,8 @@ class MessagesController extends AbstractController
     #[Route('/messagerie-admin', name: 'admin_messages')]
     public function admin(Request $request, EntityManagerInterface $entityManager): Response
     {
-        if ($this->IsGranted("ROLE_ADMIN")) {
-                $user = $this->getUser();
-                $repoUser = $entityManager->getRepository(User::class);
-                $repoMessages = $entityManager->getRepository(Messages::class);
-                $listConversation = $entityManager->getRepository(Conversation::class)->find(2);
+        if ($this->IsGranted("ROLE_ADMIN")) {         
+                $listConversation = $entityManager->getRepository(Conversation::class)->findAll();
     
 
                 // $repoUser= $entityManager->getRepository(User::class);

@@ -281,25 +281,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this->conversations;
     }
 
-    public function addConversation(Conversation $conversation): static
-    {
-        if (!$this->conversations->contains($conversation)) {
-            $this->conversations->add($conversation);
-            $conversation->addClient($this);
-        }
-
-        return $this;
-    }
-
-    public function removeConversation(Conversation $conversation): static
-    {
-        if ($this->conversations->removeElement($conversation)) {
-            $conversation->removeClient($this);
-        }
-
-        return $this;
-    }
-
     public function getConversation(): ?Conversation
     {
         return $this->conversation;
