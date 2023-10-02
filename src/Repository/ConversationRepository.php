@@ -21,12 +21,10 @@ class ConversationRepository extends ServiceEntityRepository
         parent::__construct($registry, Conversation::class);
     }
 
-    public function findConversation($user): array {
-        return $this->createQueryBuilder('m')
-            ->where('m.user = :user')
-            ->setParameter('user', $user)
-            ->getQuery()
-            ->getResult();
+    public function findAllConversationsByLastMessageDateDesc(): array {
+        return $this->findBy( 
+            array(),
+            array('last_message_date' => 'DESC'));
     }
 
 

@@ -21,47 +21,58 @@
 				<div class="col containerMessages d-flex flex-row flex-wrap">
 					<div class="leftMessagerie col-12 col-md-3">
 						<div class="userListMessages">
-								<ul>
-									{% for conversation in listConversation %}
-									<li>
-										<span><b>
-										{{ conversation.user.civility }} {{ conversation.user.lastname }}
-										</b>
-										
-										{% if conversation.user.society != null %}  ({{ conversation.user.society }}){% endif %}
-											
-										</span>
-										<span class="previewMessageContent">
-											{% for message in conversation.messages %}
-												{% if loop.last %}
-													{{ message.content }}
-												{% endif %}
-											{% endfor %}
-										</span>
-										<span class="previewMessageDate">
-										{% for message in conversation.messages %}
-												{% if loop.last %}
-													{{ message.createdat|date(" d/m/y à h:i:s") }}
-												{% endif %}
-											{% endfor %}
-										</span>
-									</li>
+							<ul>
+								{% for conversation in listConversation %}
+									{% if conversation.lastmessagedate != null %}
+										<li>
+											<a href="{{ path('admin_messages', {'conversation_id': conversation.id }) }}">
+												<span>
+													<b>
+														{{ conversation.user.civility }}
+														{{ conversation.user.lastname }}
+													</b>
 
-									{% endfor %}
-								</ul>
+													{% if conversation.user.society != null %}
+														({{ conversation.user.society }})
+													{% endif %}
+
+												</span>
+												<span class="previewMessageContent">
+													{% for message in conversation.messages %}
+														{% if loop.last %}
+															{{ message.content }}
+														{% endif %}
+													{% endfor %}
+												</span>
+												<span class="previewMessageDate">
+													{% for message in conversation.messages %}
+														{% if loop.last %}
+															{{ message.createdat|date(" d/m/y à H:i:s") }}
+														{% endif %}
+													{% endfor %}
+												</span>
+											</a>
+										</li>
+									{% endif %}
+
+
+								{% endfor %}
+							</ul>
 						</div>
 					</div>
-					
-					{# <div class="rightMessagerie col-12 col-md-9">
+
+					<div class="rightMessagerie col-12 col-md-9">
 						<div class="row topMessages" id="divMessages">
 							<div class="col-12 col-md-12">
 								<div class="topMessagesContent">
-									{% if messagesList is empty %}
-										Pas encore de messages !
+									{% if selectedConversation is null %}
+										Veuillez sélectionner une conversation a afficher
 
 									{% else %}
 										<ul class="messageList">
-											{% for message in messagesList %}
+
+
+											{% for message in selectedConversation.messages %}
 												{% if loop.first %}
 													{% set previousDate = message.createdat %}
 													<div class="date">
@@ -80,36 +91,40 @@
 												{% endif %}
 
 												<li class="
-																										{% if message.author == app.user %}
+																											{% if message.author == app.user %}
 																											rightMessage
-														
-																											{% else %}
+																												{% else %}
 																												leftMessage
-																										{% endif %}
-																									">
+																											{% endif %}
+																										">
 													<p>{{ message.content }}</p>
-													<span title="Envoyé le {{ message.createdat|date(" d/m/y à h:i:s")}}">{{ message.createdat|date("H:i:s")}}</span>
+													<span title="Envoyé le {{ message.createdat|date("d/m/y à h:i:s")}}">{{ message.createdat|date("H:i:s")}}</span>
 												</li>
 												{% set previousDate = message.createdat %}
 											{% endfor %}
 										</ul>
 									{% endif %}
+
 								</div>
 							</div>
 						</div>
 
-						{{ form_start(formMessage) }}
-						<div class="row botMessages">
-							<div class="col-12 col-md-10">
-								{{ form_widget(formMessage.content) }}
+						{% if selectedConversation is not null %}
+							{{ form_start(formMessage) }}
+							<div class="row botMessages">
+								<div class="col-12 col-md-10">
+									{{ form_widget(formMessage.content) }}
+								</div>
+								<div class="col-12 col-md-2">
+									{{ form_widget(formMessage) }}
+									<button class="btn btn-primary">Envoyer</button>
+								</div>
 							</div>
-							<div class="col-12 col-md-2">
-								{{ form_widget(formMessage) }}
-								<button class="btn btn-primary">Envoyer</button>
-							</div>
-						</div>
-						{{ form_end(formMessage) }}
-					</div> #}
+							{{ form_end(formMessage) }}
+						{% endif %}
+						
+						
+					</div>
 				</div>
 			</div>
 		</div>

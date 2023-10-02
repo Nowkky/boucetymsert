@@ -6,13 +6,13 @@
 }
 
 .topMessages {
-    height: 90%;
+    max-height: auto;
     margin-bottom: 1em;
     overflow-y: auto;
 }
 
 .botMessages {
-    height: 10%;
+    height: auto;
 }
 
 .topMessagesContent {
@@ -183,9 +183,7 @@ ul {
     overflow-y: auto;
 }
 
-.userListMessages > ul > li {
-    display: flex;
-    flex-direction: column;
+.userListMessages > ul > li{
     padding: 1em;
     border-bottom: 1px solid #7d7c7c;
     background-color: #f1eeee;
@@ -194,6 +192,13 @@ ul {
 .userListMessages > ul > li:hover {
     background-color: #e4e1e1;
     cursor:pointer;
+}
+
+.userListMessages > ul > li > a {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color:#424242;
 }
 
 .previewMessageContent {
@@ -220,6 +225,10 @@ ul {
 
 .rightMessagerie {
     padding-left: 1em;
-    height: auto;
+    height: 100%;
+    border-radius: var(--bs-border-radius);
+    overflow: hidden;
+    display:flex;
+    flex-direction: column;
 }
 

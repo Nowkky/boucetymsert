@@ -22,6 +22,9 @@ class Conversation
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?\DateTimeImmutable $last_message_date = null;
+
     public function __construct()
     {
         $this->messages = new ArrayCollection();
@@ -70,6 +73,18 @@ class Conversation
     public function setUser(User $user): static
     {
         $this->user = $user;
+
+        return $this;
+    }
+
+    public function getLastMessageDate(): ?\DateTimeImmutable
+    {
+        return $this->last_message_date;
+    }
+
+    public function setLastMessageDate(?\DateTimeImmutable $last_message_date): static
+    {
+        $this->last_message_date = $last_message_date;
 
         return $this;
     }

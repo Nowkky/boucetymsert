@@ -30,9 +30,11 @@ IDEES :
         - Messagerie instantanée comme leboncoin
         - User averti par mail a la reception d'un nouveau message
         - Admin connecté ? Ou utilisateur pour l'admin ? A voir avec mercure
+        - Affichage des infos remplies par l'utilisateur
 
 
     Mettre en forme les mails
     Voir url du site pour le mail mdp oublié
 
     AJOUT SUPPRESSION COMPTE RGPD
+    Page informations
