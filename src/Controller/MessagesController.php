@@ -27,13 +27,15 @@ class MessagesController extends AbstractController
             $repoConversation = $entityManager->getRepository(Conversation::class);
 
             //Vérification si une conversation existe avec cet utilisateur, si non, la créé
-            if ($repoConversation->find($user) != null) {
+            if ($repoConversation->findConversation($user) != null) {
                 $conversation = $repoConversation->find($user);
             } else {
                 $conversation = new Conversation();
-                $conversation->addClient($user);
+                $conversation->setUser($user);
                 $entityManager->persist($conversation);
                 $entityManager->flush();
+
+                $conversation = $repoConversation->find($user);
             }
 
             $message = new Messages();
@@ -71,10 +73,8 @@ class MessagesController extends AbstractController
                 $user = $this->getUser();
                 $repoUser = $entityManager->getRepository(User::class);
                 $repoMessages = $entityManager->getRepository(Messages::class);
-                $repoConversation = $entityManager->getRepository(Conversation::class);
+                $listConversation = $entityManager->getRepository(Conversation::class)->find(2);
     
-                $listConversation = $repoConversation->findAll();
-                
 
                 // $repoUser= $entityManager->getRepository(User::class);
                 // $adminReceiver = $repoUser->find(1);

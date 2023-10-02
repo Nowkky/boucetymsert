@@ -64,6 +64,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\ManyToMany(targetEntity: Conversation::class, mappedBy: 'Client')]
     private Collection $conversations;
 
+    #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
+    private ?Conversation $conversation = null;
+
     public function __construct()
     {
         $this->sent = new ArrayCollection();
@@ -293,6 +296,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if ($this->conversations->removeElement($conversation)) {
             $conversation->removeClient($this);
         }
+
+        return $this;
+    }
+
+    public function getConversation(): ?Conversation
+    {
+        return $this->conversation;
+    }
+
+    public function setConversation(Conversation $conversation): static
+    {
+        // set the owning side of the relation if necessary
+        if ($conversation->getUser() !== $this) {
+            $conversation->setUser($this);
+        }
+
+        $this->conversation = $conversation;
 
         return $this;
     }

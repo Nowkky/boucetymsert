@@ -20,8 +20,12 @@
     border: none;
     background-color: #fafafa;
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1019607843);
-    height: 100%;
+    height: auto;
     width: 100%;
+}
+
+.topMessagesContainer {
+    max-height: 500px;
 }
 
 .form-control {

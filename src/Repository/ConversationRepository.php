@@ -21,13 +21,15 @@ class ConversationRepository extends ServiceEntityRepository
         parent::__construct($registry, Conversation::class);
     }
 
-    public function isConversationExist($client): bool {
+    public function findConversation($user): array {
         return $this->createQueryBuilder('m')
-            ->where('m.client = :client')
-            ->setParameter('client', $client)
+            ->where('m.user = :user')
+            ->setParameter('user', $user)
             ->getQuery()
             ->getResult();
     }
+
+
 
 //    /**
 //     * @return Conversation[] Returns an array of Conversation objects

@@ -15,45 +15,21 @@ class Conversation
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\ManyToMany(targetEntity: User::class, inversedBy: 'conversations')]
-    private Collection $client;
-
     #[ORM\OneToMany(mappedBy: 'conversation', targetEntity: Messages::class, orphanRemoval: true)]
     private Collection $messages;
 
+    #[ORM\OneToOne(inversedBy: 'conversation', cascade: ['persist', 'remove'])]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?User $user = null;
+
     public function __construct()
     {
-        $this->client = new ArrayCollection();
         $this->messages = new ArrayCollection();
     }
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    /**
-     * @return Collection<int, User>
-     */
-    public function getClient(): Collection
-    {
-        return $this->client;
-    }
-
-    public function addClient(User $client): static
-    {
-        if (!$this->client->contains($client)) {
-            $this->client->add($client);
-        }
-
-        return $this;
-    }
-
-    public function removeClient(User $client): static
-    {
-        $this->client->removeElement($client);
-
-        return $this;
     }
 
     /**
@@ -82,6 +58,18 @@ class Conversation
                 $message->setConversation(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(User $user): static
+    {
+        $this->user = $user;
 
         return $this;
     }

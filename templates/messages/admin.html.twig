@@ -22,13 +22,13 @@
 					<div class="leftMessagerie col-12 col-md-3">
 						<div class="userListMessages">
 								<ul>
-							{% for conversation in listConversation %}
-									<li>{{  }}</li>
-							{% endfor %}
+								<li><pre>
+									{{ dump(listConversation) }}
+								</pre></li>
 								</ul>
 						</div>
 					</div>
-
+					
 					{# <div class="rightMessagerie col-12 col-md-9">
 						<div class="row topMessages" id="divMessages">
 							<div class="col-12 col-md-12">
