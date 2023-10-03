@@ -41,13 +41,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?string $civility = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $phone = null;
+    private ?string $phone = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $society = null;
 
     #[ORM\Column(nullable: true)]
-    private ?int $postal = null;
+    private ?string $postal = null;
 
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $city = null;
@@ -180,12 +180,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPhone(): ?int
+    public function getPhone(): ?string
     {
         return $this->phone;
     }
 
-    public function setPhone(?int $phone): static
+    public function setPhone(?string $phone): static
     {
         $this->phone = $phone;
 
@@ -204,12 +204,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getPostal(): ?int
+    public function getPostal(): ?string
     {
         return $this->postal;
     }
 
-    public function setPostal(?int $postal): static
+    public function setPostal(?string $postal): static
     {
         $this->postal = $postal;
 

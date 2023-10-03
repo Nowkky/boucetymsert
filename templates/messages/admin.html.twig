@@ -28,21 +28,45 @@
 											<a href="{{ path('admin_messages', {'conversation_id': conversation.id }) }}">
 												<span>
 													<b>
-														{{ conversation.user.civility }}
-														{{ conversation.user.lastname }}
+														{{ conversation.user.civility }} 
+														{{ conversation.user.lastname }} 
+														{{ conversation.user.firstname }}
+														
+														
 													</b>
 
-													{% if conversation.user.society != null %}
-														({{ conversation.user.society }})
-													{% endif %}
-
 												</span>
+												<span>
+													{% if conversation.user.society != null %}
+														{{ conversation.user.society }}
+														<br>
+													{% endif %}
+													
+													{% if conversation.user.phone is not null %}
+														Tel: 
+														{{ conversation.user.phone }}
+														<br>
+													{% endif %}
+													
+													Ville: 
+														 {{ conversation.user.postal }}
+
+													{% if conversation.user.city is not null %}
+														 {{ conversation.user.city }}
+														 {% else %}
+															—
+													{% endif %}
+												
+												</span>
+												<hr>
 												<span class="previewMessageContent">
-													{% for message in conversation.messages %}
-														{% if loop.last %}
-															{{ message.content }}
-														{% endif %}
-													{% endfor %}
+													<i>
+														{% for message in conversation.messages %}
+															{% if loop.last %}
+																{{ message.content }}
+															{% endif %}
+														{% endfor %}
+													</i>
 												</span>
 												<span class="previewMessageDate">
 													{% for message in conversation.messages %}

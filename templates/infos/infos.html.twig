@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes informations |&nbsp;{{ parent() }}{% endblock %}
+{% block navInfos %}active{% endblock %}
+
+{% block body %}
+    <main>
+        {{ form_start(formInfos) }}
+            {{ form_widget(formInfos) }}
+            <button>Envoyer</button>
+        {{ form_start(formInfos) }}
+    </main>
+{% endblock %}

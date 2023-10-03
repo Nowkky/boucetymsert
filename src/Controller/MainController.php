@@ -16,11 +16,4 @@ class MainController extends AbstractController
         ]);
     }
 
-    #[Route('/mes-informations', name: 'main_infos')]
-    public function infos(): Response 
-    {
-        return $this->render('main/infos.html.twig', [
-            'controller_name' => 'MainController',
-        ]);
-    }
 }
