@@ -24,30 +24,6 @@ class ChangeInfosType extends AbstractType
                 'required' => true,
                 'attr' => ['placeholder' => 'Email*']
             ])
-            ->add('password', RepeatedType::class, [
-                'type' => PasswordType::class,
-                'invalid_message' => 'Les deux mots de passe ne correspondent pas.',
-                'required' => true,
-                'first_options'  => ['attr' => ['placeholder' => 'Mot de passe*', 
-                        'class' => 'col-12 col-md-6'], 
-                        'label' => false],
-                'second_options' => ['attr' => ['placeholder' => 'Confirmation*',
-                        'class' => 'col-12 col-md-6'], 
-                        'label' => false],
-                'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
-                'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez saisir votre mot de passe',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit être d\'au moins {{ limit }} caractères.',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
-                ]
-            ])
             ->add('society', TextType::class,
             [
                 'required' => false,
@@ -90,7 +66,7 @@ class ChangeInfosType extends AbstractType
             ->add('postal', TextType::class,
             [
                 'required' => false,
-                'attr' => ['placeholder' => 'Code postal',]
+                'attr' => ['placeholder' => 'Code postal']
             ]) 
         ;
     }

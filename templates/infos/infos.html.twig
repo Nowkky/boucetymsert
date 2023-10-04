@@ -2,12 +2,75 @@
 
 {% block title %}Mes informations |&nbsp;{{ parent() }}{% endblock %}
 {% block navInfos %}active{% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/form.css') }}">
+{% endblock %}
 
 {% block body %}
     <main>
-        {{ form_start(formInfos) }}
-            {{ form_widget(formInfos) }}
-            <button>Envoyer</button>
-        {{ form_start(formInfos) }}
-    </main>
+    <div class="container bodyForm">
+        <div class="form-control">
+            <div class="d-flex justify-content-center align-items-center flex-wrap">
+                {{ form_start(formInfos) }}
+					<h1>
+						<b>Modifier mes informations</b>
+					</h1>
+                    <p>Modifier vos informations, ou supprimer votre compte facilement.</p>
+                    
+					{{ form_errors(formInfos) }}
+
+                    <div class="row justify-content-between">
+						<div class="col-12">
+							{{ form_widget(formInfos.email) }}
+						</div>
+					</div>
+                    <br>
+
+					<div class="row justify-content-between">
+						<div class="col-12 col-md-6">
+							{{ form_label(formInfos.civility) }}
+							<div class="radioContact">
+								{{ form_widget(formInfos.civility) }}
+							</div>
+						</div>
+					</div>
+                    <br>
+
+					<div class="row justify-content-between">
+						<div class="col-12 col-md-6">
+							{{ form_widget(formInfos.lastname) }}
+						</div>
+						<div class="col-12 col-md-6">
+							{{ form_widget(formInfos.firstname) }}
+						</div>
+
+					</div>
+
+					<div class="row justify-content-between">
+                        <div class="col-12 col-md-6">
+							{{ form_widget(formInfos.society) }}
+						</div>
+						<div class="col-12 col-md-6">
+							{{ form_widget(formInfos.phone) }}
+						</div>
+					</div>
+
+					<div class="row justify-content-between">
+						<div class="col-12 col-md-6">
+							{{ form_widget(formInfos.city) }}
+						</div>
+						<div class="col-12 col-md-6">
+							{{ form_widget(formInfos.postal) }}
+						</div>
+					</div>
+
+					<div class="d-grid gap-2 col-6 mx-auto">
+						{{ form_widget(formInfos) }}
+						<button class="btn btn-primary">Envoyer</button>
+					</div>
+					{{ form_end(formInfos) }}
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock %}
