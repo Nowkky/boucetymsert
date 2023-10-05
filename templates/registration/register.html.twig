@@ -18,7 +18,17 @@
 					</h1>
                     <p>Pourquoi s'inscrire ? Vous pourrez chatter directement avec notre équipe à l'aide de notre messagerie instantanée !</p>
                     
-					{{ form_errors(formRegister) }}
+					{% if not formRegister.vars.valid %}
+						<div class="alert alert-danger">
+							<ul>
+								{% for child in formRegister.children %}
+									{% for error in child.vars.errors %}
+										<li>{{ error.message }}</li>
+									{% endfor %}
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
 
                     <div class="row justify-content-between">
 						<div class="col-12">

@@ -8,6 +8,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasherInterface;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -16,28 +17,30 @@ class InfosController extends AbstractController
     #[Route('/mes-informations', name: 'app_infos')]
     public function index(Request $request, EntityManagerInterface $entityManager, UserPasswordHasherInterface $userPasswordHasher): Response
     {
-        $user = $this->getUser();
+        if ($this->IsGranted("ROLE_USER")) {
+            $user = $this->getUser();
 
-        $form = $this->createForm(ChangeInfosType::class, $user);
+            $form = $this->createForm(ChangeInfosType::class, $user);
 
-            $form->handleRequest($request);
+                $form->handleRequest($request);
 
-            if ($form->isSubmitted() && $form->isValid()) {
+                if ($form->isSubmitted() && $form->isValid()) {
 
-                $entityManager->persist($user);
-                $entityManager->flush();
-                
+                    $entityManager->persist($user);
+                    $entityManager->flush(); 
 
-                //+ add un flash
-                return $this->redirect($request->getUri());
-            }
+                    $this->addFlash('success', 'Vos informations ont bien été modifiées.');
+                    return $this->redirect($request->getUri());
+                }
 
-        return $this->render('infos/infos.html.twig', [
-            'controller_name' => 'InfosController',
-            'formInfos' => $form
-        ]);
+            return $this->render('infos/infos.html.twig', [
+                'controller_name' => 'InfosController',
+                'formInfos' => $form
+            ]);
+        } else {
+            $this->addFlash('danger', 'Vous n\'avez pas accès à cette page. Veuillez vous authentifier ou vous inscrire.');
+            return $this->redirectToRoute('main_home');
+        }
     }
-
-    //fonction pour suppr compte
-    //fonction pour modifier infos?
+    
 }

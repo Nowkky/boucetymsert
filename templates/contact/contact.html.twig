@@ -9,11 +9,6 @@
 
 
 {% block body %}
-		{% for message in app.flashes('success') %}
-			<div class="alert alert-success">
-				{{ message }}
-			</div>
-		{% endfor %}
 	<main>
 		<div class="container bodyForm">
 			<div class="form-control">
@@ -24,7 +19,22 @@
 						<b>Contactez-nous !</b>
 					</h1>
 					<p>Remplissez ce formulaire et nous reviendrons vers vous dès que possible !</p>
-					{{ form_errors(formContact) }}
+						{% for message in app.flashes('success') %}
+							<div class="alert alert-success">
+								{{ message }}
+							</div>
+						{% endfor %}
+						{% if not formContact.vars.valid %}
+							<div class="alert alert-danger">
+								<ul>
+									{% for child in formContact.children %}
+										{% for error in child.vars.errors %}
+											<li>{{ error.message }}</li>
+										{% endfor %}
+									{% endfor %}
+								</ul>
+							</div>
+						{% endif %}
 
 					<div class="row justify-content-between">
 						<div class="col-12 col-md-6">

@@ -16,9 +16,29 @@
 						<b>Modifier mes informations</b>
 					</h1>
                     <p>Modifier vos informations, ou supprimer votre compte facilement.</p>
-                    
-					{{ form_errors(formInfos) }}
 
+					{% if not formInfos.vars.valid %}
+						<div class="alert alert-danger">
+							<ul>
+								{% for child in formInfos.children %}
+									{% for error in child.vars.errors %}
+										<li>{{ error.message }}</li>
+									{% endfor %}
+								{% endfor %}
+							</ul>
+						</div>
+					{% endif %}
+					{% for message in app.flashes('success') %}
+						<div class="alert alert-success">
+							{{ message }}
+						</div>
+					{% endfor %}
+					{% for message in app.flashes('danger') %}
+						<div class="alert alert-danger">
+							{{ message }}
+						</div>
+					{% endfor %}
+					
                     <div class="row justify-content-between">
 						<div class="col-12">
 							{{ form_widget(formInfos.email) }}
@@ -64,11 +84,22 @@
 						</div>
 					</div>
 
-					<div class="d-grid gap-2 col-6 mx-auto">
-						{{ form_widget(formInfos) }}
-						<button class="btn btn-primary">Envoyer</button>
+					
+					<div class="row justify-content-between">
+						<div class="d-grid col-12 col-md-4 mx-auto">
+							<a href="{{ path('change_password') }}" class="btn btn-outline-primary">Modifier mon mot de passe</a>
+						</div>
+						<div class="d-grid col-12 col-md-4 mx-auto">
+							{{ form_widget(formInfos) }}
+							<button class="btn btn-primary">Valider</button>
+						</div>
+						<div class="d-grid col-12 col-md-4 mx-auto">
+							<a href="javascript:void(0)" onclick="if(confirm('Voulez-vous vraiment supprimer votre compte ?')){window.location='{{ path('delete_account', {'id': app.user.id}) }}';}" class="btn btn-outline-danger">Supprimer mon compte</a>
+						</div>
 					</div>
-					{{ form_end(formInfos) }}
+						{{ form_end(formInfos) }}
+
+					
             </div>
         </div>
     </div>

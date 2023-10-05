@@ -40,7 +40,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 4)]
     private ?string $civility = null;
 
-    #[ORM\Column(length: 10, nullable: true)]
+    #[ORM\Column(length: 20, nullable: true)]
     private ?string $phone = null;
 
     #[ORM\Column(length: 255, nullable: true)]
@@ -58,20 +58,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\OneToMany(mappedBy: 'author', targetEntity: Messages::class, orphanRemoval: true)]
     private Collection $sent;
 
-    #[ORM\OneToMany(mappedBy: 'receiver', targetEntity: Messages::class, orphanRemoval: true)]
-    private Collection $received;
-
-    #[ORM\ManyToMany(targetEntity: Conversation::class, mappedBy: 'Client')]
-    private Collection $conversations;
-
     #[ORM\OneToOne(mappedBy: 'user', cascade: ['persist', 'remove'])]
     private ?Conversation $conversation = null;
 
     public function __construct()
     {
         $this->sent = new ArrayCollection();
-        $this->received = new ArrayCollection();
-        $this->conversations = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -271,14 +263,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         }
 
         return $this;
-    }
-
-    /**
-     * @return Collection<int, Conversation>
-     */
-    public function getConversations(): Collection
-    {
-        return $this->conversations;
     }
 
     public function getConversation(): ?Conversation

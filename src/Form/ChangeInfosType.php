@@ -14,6 +14,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Validator\Constraints\Regex;
 
 class ChangeInfosType extends AbstractType
 {
@@ -53,14 +54,20 @@ class ChangeInfosType extends AbstractType
                 'required' => false,
                 'attr' => ['placeholder' => 'Téléphone'],
                 'constraints' => [
+                    new Regex([
+                        'pattern' => '^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$^', 
+                        'message' => 'Votre numéro de téléphone n\'est pas valide (chiffres de 0-9 et 10 caractères min.)'
+                    ]),
                     new Length([
-                        'max' => 10,
-                        'maxMessage' => '10 caractères maximum'
+                        'min' => 10,
+                        'minMessage' => '10 caractères minimum',
+                        'max' => 20,
+                        'maxMessage' => '20 caractères maximum'
                 ])]
             ])
             ->add('city', TextType::class,
             [
-                'required' => false,
+                'required' => true,
                 'attr' => ['placeholder' => 'Ville de la demande*']
             ])
             ->add('postal', TextType::class,

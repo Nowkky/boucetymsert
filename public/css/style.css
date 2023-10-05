@@ -16,6 +16,13 @@ header {
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1019607843);
 }
 
+.logoContainer {
+
+}
+
+.imgLogo {
+    width: 50%;
+}
 
 .content {
     background-image: url('../img/bg.jpg');

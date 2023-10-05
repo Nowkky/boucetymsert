@@ -9,6 +9,11 @@
 				{{ message }}
 			</div>
 		{% endfor %}
+        {% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
 <div class="containerImgNav">
     <!-- Image by upklyakon on Freepik -->
     <img id="imgUnderNav" src="{{ asset('img/img_sous_nav2.jpg') }}" alt="img sous nav">
