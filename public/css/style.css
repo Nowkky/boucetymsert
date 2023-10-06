@@ -17,11 +17,11 @@ header {
 }
 
 .logoContainer {
-
+    text-align: left;
 }
 
 .imgLogo {
-    width: 50%;
+    max-width: 200px;
 }
 
 .content {
@@ -52,9 +52,8 @@ hr {
 
 .nav  {
     display:flex;
-    height: 12vh;
-    justify-content: space-between;
-    align-items: center;
+    height: auto;
+    flex-direction: row;
 }
 
 .titreTemp a{
@@ -62,6 +61,13 @@ hr {
     font-size: 2em;
     font-weight: bold;
     text-decoration: none;
+}
+
+.navContainer {
+    align-self: flex-end;
+    justify-self: flex-end;
+    text-align: right;
+    padding-bottom: 1em;
 }
 
 .navContainer a {
@@ -94,9 +100,9 @@ hr {
     text-shadow: #424242 1px 0 10px;
 }
 
-.containerImgNav img {
+/* .containerImgNav img {
     filter:blur(4px);
-}
+} */
 
 .containerImgNav {
     position: relative;
@@ -107,7 +113,7 @@ hr {
 }
 
 #imgNavTitle {
-    font-size: 5vw;
+    font-size: 3vw;
     font-weight: bold;
 }
 

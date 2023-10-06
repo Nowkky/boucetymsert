@@ -24,9 +24,9 @@
 		<div class="content">
 				<header>
 					<nav class="nav container">
-						<div class="logoContainer">
+						<div class="logoContainer col-12 col-md-4">
 							<a href="{{ path('main_home') }}">
-								<img class="imgLogo" src="{{ asset('img/logo.jpg') }}" alt="Revenir à l'accueil">
+								<img class="imgLogo" src="{{ asset('img/logo_v2.png') }}" alt="Revenir à l'accueil">
 							</a>
 						</div>
 
@@ -34,7 +34,7 @@
 							<a href="{{ path('main_home') }}">J'ai un bouc et y'm'sert</a>
 						</div> #}
 
-						<div class="navContainer">
+						<div class="navContainer col-12 col-md-8">
 							<a class="navHome" id="{% block navHome %}{% endblock %}" href="{{ path('main_home') }}" style="">Accueil</a>
 							<a class="navServices" id="{% block navServices %}{% endblock %}" href="#">Prestations</a>
 							<a class="navAbout" id="{% block navAbout %}{% endblock %}" href="#">A propos</a>

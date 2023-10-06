@@ -5,7 +5,6 @@ form {
 }
 
 .form-control {
-    width: 60vw;
     height: auto;
     background-color: #ffffffa3; 
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1019607843);
