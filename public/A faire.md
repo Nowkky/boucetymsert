@@ -38,3 +38,5 @@ IDEES :
 
     AJOUT SUPPRESSION COMPTE RGPD
     Page informations
+
+    NUM D URGENCE PAGE CONTACT
