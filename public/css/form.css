@@ -19,7 +19,6 @@ form {
 }
 
 .bodyFormLogin {
-    min-height: 80vh;;
     display:flex;
     justify-content: center;
     align-items: center;
@@ -118,4 +117,14 @@ form a.btn.btn-outline-danger{
 
 .links {
     padding-bottom: 2em;
+}
+
+a.aCreateAccount {
+    text-decoration: underline;
+    color:#424242;
+}
+
+a.aCreateAccount:hover {
+    color:#8EBC40;
+    transition: .2s ease;  
 }

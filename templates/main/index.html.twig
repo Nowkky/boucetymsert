@@ -1,3 +1,4 @@
+
 {% extends 'base.html.twig' %}
 
 {% block title %}{{ parent() }}{% endblock %}
@@ -14,51 +15,40 @@
 				{{ message }}
 			</div>
 		{% endfor %}
-<div class="containerImgNav">
-    {# <!-- Image by upklyakon on Freepik -->
-    <img id="imgUnderNav" src="{{ asset('img/img_sous_nav2.jpg') }}" alt="img sous nav">
-    <div class="textImgNav">
-        <p id="imgNavTitle">L'éco-pâturage, pensez-y !</p>
-    </div> #}
-    <div id="divUnderNav"></div>
-</div>
+        <div class="containerImgNav">
+            {# <!-- Image by upklyakon on Freepik -->
+            <img id="imgUnderNav" src="{{ asset('img/img_sous_nav2.jpg') }}" alt="img sous nav">
+            <div class="textImgNav">
+                <p id="imgNavTitle">L'éco-pâturage, pensez-y !</p>
+            </div> #}
+            <div id="divUnderNav"></div>
+        </div>
+        <main class="container">
+            <p>
+                Depuis nos débuts en 2013, nous prenons soin de 250 animaux, principalement des moutons, complétés par des chèvres et une petite troupe d'ânes. 
+                Répartis sur une trentaine de sites totalisant une superficie d'environ trente hectares, nos protégés évoluent dans des parcelles diverses et variées.
+                Notre base, basée au Pertre, est un havre de deux hectares et demi équipé de bâtiments dédiés, elle assure un refuge idéal en toutes circonstances pour les animaux en attente de leur prochaine mission.
+                    [   INSERER CARTE EN BAS DE PAGE OU FOOTER ?   ]
+            
+                En matière de déplacement, nous privilégions une zone d'intervention idéalement située dans un rayon de 40 km. Nous proposons des tarifs progressifs, ajustés en fonction de la distance et de la superficie du site.
 
-<main class="container">
-    <article class="articleHome row justify-content-between align-items-center">
-        <div class="col-12 col-md-6">
-            <img src="{{ asset('img/img_article.jpg') }}" alt="img article" title="img article">
-        </div>
-        <div class="col-12 col-md-5 articleText">
-            <h2>C'est quoi l'éco-pâturage ?</h2>
-            <span>
-                L'éco-pâturage est une méthode de gestion écologique des espaces verts qui implique l'utilisation d'animaux herbivores, comme des moutons, des chèvres ou des vaches, pour entretenir des zones naturelles ou urbaines. Au lieu d'utiliser des tondeuses ou des machines, ces animaux se nourrissent de la végétation, ce qui permet de maintenir un équilibre écologique et de favoriser la biodiversité. L'éco-pâturage est considéré comme une alternative plus respectueuse de l'environnement et moins énergivore que les méthodes traditionnelles d'entretien des espaces verts. De plus, il contribue à la préservation de la diversité des espèces végétales et animales.
-            </span>        
-        </div>
-    </article>
-    <br><br>
-    <article class="articleHome row justify-content-between align-items-center">
-        <div class="col-12 col-md-5 articleText">
-            <h2>Pourquoi faire de l'éco-pâturage ?</h2>
-            <span>
-                L'éco-pâturage est une méthode respectueuse de l'environnement pour entretenir les espaces verts. Elle favorise la biodiversité, réduit la pollution, et économise de l'énergie. De plus, elle offre des opportunités d'éducation environnementale et de création d'emplois locaux. Adopter l'éco-pâturage contribue à préserver la nature tout en maintenant la beauté de nos espaces verts.
-            </span>
-            </div>
-        <div class="col-12 col-md-6">
-            <img src="{{ asset('img/img_article.jpg') }}" alt="img article" title="img article">
-        </div>
-    </article>    
-    <br><br>
-    <article class="articleHome row justify-content-between align-items-center">
-        <div class="col-12 col-md-6">
-            <img src="{{ asset('img/img_article.jpg') }}" alt="img article" title="img article">
-        </div>
-        <div class="col-12 col-md-5 articleText">
-            <h2>Découvrez nos prestations</h2>
-            <span>
-                Vous êtes à la recherche d'une solution respectueuse de l'environnement pour l'entretien de vos espaces verts ? Découvrez nos services d'éco-pâturage, une approche novatrice et durable qui favorise la biodiversité tout en préservant la beauté naturelle de vos lieux. Nos herbivores se chargent du désherbage de manière naturelle, sans produits chimiques nocifs.
-            </span>
-        </div>
-    </article>
-    <br><br><br><br><br><br><br><br><br><br><br>
-</main>
+                Nos clients, qu'ils soient entreprises, collectivités ou particuliers, bénéficient de notre expertise. Pour les nouveaux clients, nous étendons notre rayon d'action jusqu'à 80 km, sur l'axe des clients déjà présents.
+                Pour assurer la mobilité de nos protégés, nous disposons d'un camion bétaillère adapté, garantissant leur sécurité et leur bien-être tout au long du trajet.
+            </p>
+            <div class="col-12 col-md-5">
+				<div id="map"></div>
+			</div>
+
+            <p>
+                Déroulement d'une prestation :
+
+                Nos prestations se déroulent en plusieurs étapes : prise de contact initiale, visite systématique du site pour une étude approfondie, évaluation de la faisabilité du projet, et vérification des conditions d'accueil pour nos animaux. Une fois les détails confirmés, nous assurons le transport des animaux vers leur nouveau chez-eux.
+
+                Nous assurons ensuite des visites régulières, adaptées à chaque site, garantissant approvisionnement en eau et en alimentation, et veillant au bien-être de nos protégés. En fonction de la superficie du site et de l'évolution de la végétation, le nombre d'animaux peut être ajusté.
+
+                Lorsque le projet est accompli, nous rapatrions nos protégés vers un nouveau site ou à la maison, tout en prenant soin de retirer les clôtures et autres installations.
+
+                Nous sommes fiers de partager notre passion pour l'élevage responsable avec vous. N'hésitez pas à nous contacter pour discuter de votre projet. Chez nous, chaque animal compte, et chaque projet est une nouvelle aventure.
+            </p>
+        </main>
 {% endblock %}

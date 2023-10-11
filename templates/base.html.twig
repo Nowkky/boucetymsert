@@ -15,7 +15,10 @@
 		<link href="https://fonts.cdnfonts.com/css/source-sans-pro?styles=14484,14489,14486,14490,14491,14485,14483,14482,14488,14487,14493,14492" rel="stylesheet">
 		
 		<!-- CSS/JS -->
+		<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
 		<link rel="stylesheet" href="{{ asset('css/style.css') }}"> 
+		<script src="{{ asset('js/map.js') }}" type="module"></script>
 		{% block stylesheets %}{% endblock %}
 		{% block javascripts %}{% endblock %}
 
@@ -42,8 +45,7 @@
 
 						<div class="navContainer col-12">
 							<a class="navHome" id="{% block navHome %}{% endblock %}" href="{{ path('main_home') }}" style="">Accueil</a>
-							<a class="navServices" id="{% block navServices %}{% endblock %}" href="#">Prestations</a>
-							<a class="navAbout" id="{% block navAbout %}{% endblock %}" href="#">A propos</a>
+							<a class="navAbout" id="{% block navAbout %}{% endblock %}" href="{{ path('app_about') }}">A propos</a>
 							<a class="navContact" id="{% block navContact %}{% endblock %}" href="{{ path('app_contact') }}">Contact</a>
 							{% if not app.user %}
 								<a class="navLogin" id="{% block navLogin %}{% endblock %}" href="{{ path('app_login') }}">Connexion / Inscription</a>
@@ -70,7 +72,7 @@
 			<div class="container">
 					<br>
 					<div class="footerMain row justify-content-between align-items-center">
-						<div class="col-3">
+						<div class="col-6 col-md-3">
 							<b>J'ai un bouc et y'm'sert (logo?)</b><br>
 							La baffonderie<br>
 							35370 LE PERTRE<br>
@@ -78,15 +80,20 @@
 							boucetymsert@orange.fr
 						</div>
 
-						<div class="col-3">
+						<div class="col-6 col-md-3">
 							Copyright&copy; J'ai un bouc et y'm'sert
-						</div>
-
-						<div class="col-3">
-							<a href="#">Contact</a>
 						</div>
 					</div>
 			</div>
 			</footer>
+
+			<script>
+				(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
+					key: "AIzaSyC9aSaZpCmlWITqGMNzIb6hhuKUR6CkJ6A",
+					// Add other bootstrap parameters as needed, using camel case.
+					// Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
+				});
+			</script>
+
 		</body>
 	</html>

@@ -89,7 +89,7 @@ hr {
 }
 
 .containerImgNav {
-    height: 0.2em;
+    height: 0.1em;
     background-color: #8EBC40;
 }
 
@@ -158,4 +158,29 @@ hr {
 
 .articleText {
     text-align: justify;
+}
+
+.btn-devis {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1019607843);
+    font-family: 'Source Sans Pro', sans-serif;
+    text-decoration: none;
+
+    --bs-btn-color: #8EBC40;
+    --bs-btn-bg: transparent;
+    --bs-btn-border-color: #8EBC40;
+
+    --bs-btn-hover-bg: #8EBC40;
+    --bs-btn-hover-border-color: #8EBC40;
+
+    --bs-btn-active-bg:#8EBC40;
+    --bs-btn-active-border-color: #8EBC40;
+}
+
+#map {
+    height: 200px;
+    width: 100%;
+}
+
+.footerSpace {
+    height: 10em;
 }

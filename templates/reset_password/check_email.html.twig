@@ -3,13 +3,15 @@
 {% block title %}Email envoyé ! |&nbsp;{{ parent() }}{% endblock %}
 
 {% block body %}
-    <div class="bodyCheckEmail">
-        <div class="alert alert-success">
-            <p>
-            Si un compte est associé à votre adresse mail, alors un email contenant un lien vous permettant de réinitialiser votre mot de passe vous a été envoyé.
-            Ce lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-            </p>
-            <p>Si vous n'avez rien reçu, pensez à vérifier vos spams. Sinon <a href="{{ path('app_forgot_password_request') }}">Essayer à nouveau</a>.</p>
+    <main>
+        <div class="bodyCheckEmail">
+            <div class="container alert alert-success">
+                <p>
+                Si un compte est associé à votre adresse mail, alors un email contenant un lien vous permettant de réinitialiser votre mot de passe vous a été envoyé.
+                Ce lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
+                </p>
+                <p>Si vous n'avez rien reçu, pensez à vérifier vos spams. Sinon <a href="{{ path('app_forgot_password_request') }}">Essayer à nouveau</a>.</p>
+            </div>
         </div>
-    </div>
+    </main>
  {% endblock %}

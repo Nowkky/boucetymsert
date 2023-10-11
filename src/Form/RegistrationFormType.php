@@ -40,15 +40,10 @@ class RegistrationFormType extends AbstractType
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
-                    new NotBlank([
-                        'message' => 'Veuillez saisir votre mot de passe',
-                    ]),
-                    new Length([
-                        'min' => 6,
-                        'minMessage' => 'Votre mot de passe doit être d\'au moins {{ limit }} caractères.',
-                        // max length allowed by Symfony for security reasons
-                        'max' => 4096,
-                    ]),
+                    new Regex([
+                        'pattern' => '/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*.-]).{8,}$/', 
+                        'message' => 'Votre mot de passe doit faire au minimum 8 caractères et doit être composé d\'une majuscule, d\'une minuscule, d\'un chiffre et d\'un caractère spécial.'
+                ]),
                 ]
             ])
             ->add('society', TextType::class,
@@ -81,7 +76,7 @@ class RegistrationFormType extends AbstractType
                 'attr' => ['placeholder' => 'Téléphone'],
                 'constraints' => [
                     new Regex([
-                        'pattern' => '^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$^', 
+                        'pattern' => '/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/', 
                         'message' => 'Votre numéro de téléphone n\'est pas valide (chiffres de 0-9 et 10 caractères min.)'
                     ]),
                     new Length([

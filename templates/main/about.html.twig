@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}A propos |&nbsp;{{ parent() }}{% endblock %}
+{% block navAbout %}active{% endblock %}
+
+{% block body %}
+<main class="container">
+    <article class="articleHome row justify-content-between align-items-center">
+        <div class="col-12 col-md-6">
+            <img src="{{ asset('img/img_article.jpg') }}" alt="img article" title="img article">
+        </div>
+        <div class="col-12 col-md-5 articleText">
+            <h2>C'est quoi l'éco-pâturage ?</h2>
+            <span>
+                L'éco-pâturage est une méthode de gestion écologique des espaces verts qui implique l'utilisation d'animaux herbivores, comme des moutons, des chèvres ou des vaches, pour entretenir des zones naturelles ou urbaines. Au lieu d'utiliser des tondeuses ou des machines, ces animaux se nourrissent de la végétation, ce qui permet de maintenir un équilibre écologique et de favoriser la biodiversité. L'éco-pâturage est considéré comme une alternative plus respectueuse de l'environnement et moins énergivore que les méthodes traditionnelles d'entretien des espaces verts. De plus, il contribue à la préservation de la diversité des espèces végétales et animales.
+            </span>        
+        </div>
+    </article>
+    <br><br>
+    <article class="articleHome row justify-content-between align-items-center">
+        <div class="col-12 col-md-5 articleText">
+            <h2>Pourquoi faire de l'éco-pâturage ?</h2>
+            <span>
+                L'éco-pâturage est une méthode respectueuse de l'environnement pour entretenir les espaces verts. Elle favorise la biodiversité, réduit la pollution, et économise de l'énergie. De plus, elle offre des opportunités d'éducation environnementale et de création d'emplois locaux. Adopter l'éco-pâturage contribue à préserver la nature tout en maintenant la beauté de nos espaces verts.
+            </span>
+            </div>
+        <div class="col-12 col-md-6">
+            <img src="{{ asset('img/img_article.jpg') }}" alt="img article" title="img article">
+        </div>
+    </article>    
+    <br><br>
+    <article class="articleHome row justify-content-between align-items-center">
+        <div class="col-12 col-md-6">
+            <img src="{{ asset('img/img_article.jpg') }}" alt="img article" title="img article">
+        </div>
+        <div class="col-12 col-md-5 articleText">
+            <h2>Découvrez nos prestations</h2>
+            <span>
+                Vous êtes à la recherche d'une solution respectueuse de l'environnement pour l'entretien de vos espaces verts ? Découvrez nos services d'éco-pâturage, une approche novatrice et durable qui favorise la biodiversité tout en préservant la beauté naturelle de vos lieux. Nos herbivores se chargent du désherbage de manière naturelle, sans produits chimiques nocifs.
+            </span>
+            <br><br>
+            <div class="d-flex col-12 flex-wrap justify-content-center">
+                <a href="{{ path('app_contact') }}" class="btn-devis col-12 col-md-8 btn btn-outline-primary">Faire un devis</a>
+            </div>
+        </div>
+    </article>
+    <br><br><br><br><br><br><br><br><br><br><br>
+</main>
+{% endblock %}

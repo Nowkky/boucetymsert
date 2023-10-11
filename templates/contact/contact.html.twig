@@ -10,14 +10,26 @@
 
 {% block body %}
 	<main>
+		{# <div class="container bodyInscription">
+			<div class="form-control col-12 col-md-8">
+				<h1>Contactez-nous !</h1>
+
+				Via notre messagerie privée (requiert la <a href="">création d'un compte</a>)
+			</div>
+		</div> #}
 		<div class="container bodyForm">
 			<div class="form-control col-12 col-md-8">
 				<div class="d-flex justify-content-center align-items-center flex-wrap">
-
 					{{ form_start(formContact) }}
 					<h1>
 						<b>Contactez-nous !</b>
 					</h1>
+
+					<h5><b>Via notre messagerie privée (requiert la <a class="aCreateAccount" href="{{ path('app_register') }}">création d'un compte</a>)</b></h5>
+					<br><br><hr><br><br>
+					<h5>
+						<b>Via notre formulaire de contact</b>
+					</h5>
 					<p>Remplissez ce formulaire et nous reviendrons vers vous dès que possible !</p>
 						{% for message in app.flashes('success') %}
 							<div class="alert alert-success">
@@ -95,5 +107,6 @@
 				</div>
 			</div>
 		</div>
+		<div class="footerSpace"></div>
 	</main>
 {% endblock %}
