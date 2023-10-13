@@ -29,17 +29,20 @@ header {
     background-position: center bottom;
     background-repeat: no-repeat;
     background-size: 100%;
+    
 }
 
 main {
     padding-top: 5em;
     min-height: 80vh;
+    padding-bottom: 20em;
 }
 
 footer {
     color:#424242;
     background-color: #8EBC40;
     padding-bottom: 2em;
+    width: 100%;
 }
 
 .footerMain {
@@ -177,10 +180,59 @@ hr {
 }
 
 #map {
-    height: 200px;
+    height: 250px;
     width: 100%;
 }
 
 .footerSpace {
     height: 10em;
+}
+
+.carousel-item img {
+    width: auto;
+    height: 400px;
+    object-fit: cover;
+}
+
+.homeFirst h2 {
+    color:#8EBC40;
+
+}
+
+.homeFirst {
+    margin-top: 2em;
+    padding:1em;
+    border-radius: var(--bs-border-radius);;
+    border: 1px solid #42424271;
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1019607843);
+    text-align: justify;
+    font-size: large;
+}
+
+.homeSecond {
+    font-size: large;
+    margin-bottom: 2em;
+}
+
+.homeThird h2 {
+    color:#8EBC40;
+}
+
+.homeThird {
+    font-size: large;
+    text-align: justify;
+}
+
+.homeThird img {
+    width: 450px;
+}
+
+.homeThird figure {
+    float:right;
+    padding-left:1em;
+    padding-bottom: 1em;
+}
+
+#imgLogoFooter {
+    width: 200px;
 }

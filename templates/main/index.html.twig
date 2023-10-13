@@ -1,54 +1,125 @@
-
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }}{% endblock %}
-{% block navHome %}active{% endblock %}
+{% block title %}
+	{{ parent() }}
+{% endblock %}
+{% block navHome %}active
+{% endblock %}
 
 {% block body %}
-        {% for message in app.flashes('danger') %}
-			<div class="alert alert-danger">
-				{{ message }}
+	{% for message in app.flashes('danger') %}
+		<div class="alert alert-danger">
+			{{ message }}
+		</div>
+	{% endfor %}
+	{% for message in app.flashes('success') %}
+		<div class="alert alert-success">
+			{{ message }}
+		</div>
+	{% endfor %}
+	<div
+		class="containerImgNav">
+		{# <!-- Image by upklyakon on Freepik -->
+				            <img id="imgUnderNav" src="{{ asset('img/img_sous_nav2.jpg') }}" alt="img sous nav">
+				            <div class="textImgNav">
+				                <p id="imgNavTitle">L'éco-pâturage, pensez-y !</p>
+				            </div> #}
+		<div id="divUnderNav"></div>
+	</div>
+
+	<main class="container">
+		<div id="carouselExampleCaptions" class="carousel slide">
+			<div class="carousel-indicators">
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
 			</div>
-		{% endfor %}
-        {% for message in app.flashes('success') %}
-			<div class="alert alert-success">
-				{{ message }}
+			<div class="carousel-inner">
+				<div class="carousel-item active">
+					<img src="{{ asset('img/carousel/carousel1.jpg') }}" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Première photo</h5>
+						<p>Photo d'animaux sur le lieu d'une prestation...</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="{{ asset('img/carousel/carousel1.jpg') }}" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Seconde photo</h5>
+						<p>Olivier amène sa première chèvre sur l'enclos du bassin de l'orage..</p>
+					</div>
+				</div>
+				<div class="carousel-item">
+					<img src="{{ asset('img/carousel/carousel1.jpg') }}" class="d-block w-100" alt="...">
+					<div class="carousel-caption d-none d-md-block">
+						<h5>Troisième photo</h5>
+						<p>Olivier amène sa première chèvre sur l'enclos du bassin de l'orage..</p>
+					</div>
+				</div>
 			</div>
-		{% endfor %}
-        <div class="containerImgNav">
-            {# <!-- Image by upklyakon on Freepik -->
-            <img id="imgUnderNav" src="{{ asset('img/img_sous_nav2.jpg') }}" alt="img sous nav">
-            <div class="textImgNav">
-                <p id="imgNavTitle">L'éco-pâturage, pensez-y !</p>
-            </div> #}
-            <div id="divUnderNav"></div>
-        </div>
-        <main class="container">
-            <p>
-                Depuis nos débuts en 2013, nous prenons soin de 250 animaux, principalement des moutons, complétés par des chèvres et une petite troupe d'ânes. 
-                Répartis sur une trentaine de sites totalisant une superficie d'environ trente hectares, nos protégés évoluent dans des parcelles diverses et variées.
-                Notre base, basée au Pertre, est un havre de deux hectares et demi équipé de bâtiments dédiés, elle assure un refuge idéal en toutes circonstances pour les animaux en attente de leur prochaine mission.
-                    [   INSERER CARTE EN BAS DE PAGE OU FOOTER ?   ]
-            
-                En matière de déplacement, nous privilégions une zone d'intervention idéalement située dans un rayon de 40 km. Nous proposons des tarifs progressifs, ajustés en fonction de la distance et de la superficie du site.
+			<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			</button>
+			<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			</button>
+		</div>
 
-                Nos clients, qu'ils soient entreprises, collectivités ou particuliers, bénéficient de notre expertise. Pour les nouveaux clients, nous étendons notre rayon d'action jusqu'à 80 km, sur l'axe des clients déjà présents.
-                Pour assurer la mobilité de nos protégés, nous disposons d'un camion bétaillère adapté, garantissant leur sécurité et leur bien-être tout au long du trajet.
-            </p>
-            <div class="col-12 col-md-5">
-				<div id="map"></div>
+		<div class="homeFirst">
+			<h2><b>Notre histoire</b></h2>
+			<p>
+				Depuis nos débuts en 2013, nous prenons soin de 250 animaux, principalement des moutons, complétés par des chèvres et une petite troupe d'ânes. <br>
+				Répartis sur une trentaine de sites totalisant une superficie d'environ trente hectares. <br><br>
+				Notre base, basée au Pertre, est un havre de deux hectares et demi équipé de bâtiments dédiés, elle assure un refuge idéal en toutes circonstances pour les animaux en attente de leur prochaine mission.
+			</p>
+		</div>
+
+		<br><br>
+
+		<article class="homeSecond articleHome row justify-content-between align-items-center">
+			<div class="col-12 col-md-6 articleText">
+				<h2>Zone géographique</h2>
+				<span>
+					En matière de déplacement, nous privilégions une zone d'intervention idéalement située dans un rayon de 40 km. Nous proposons des tarifs progressifs, ajustés en fonction de la distance et de la superficie du site. <br>
+					Nos clients, qu'ils soient entreprises, collectivités ou particuliers, bénéficient de notre expertise. Pour les nouveaux clients, nous étendons notre rayon d'action jusqu'à 80 km, sur l'axe des clients déjà présents. <br>
+					Pour assurer la mobilité de nos protégés, nous disposons d'un camion bétaillère adapté, garantissant leur sécurité et leur bien-être tout au long du trajet.
+				</span>
+				</div>
+			<div class="col-12 col-md-5">
+				<div id="map" class="rounded"></div>
 			</div>
+    	</article>
 
-            <p>
-                Déroulement d'une prestation :
+		<figure class="figure">
+			<img id="imgBetaillere" src="{{asset('img/accueil/imageBetaillere.jpg')}}" alt="Image bétaillère" title="Image bétaillère" class="figure-img img-fluid rounded">
+			<figcaption class="figure-caption"><i>Arrivée des animaux sur le lieu d'une prestation</i></figcaption>
+		</figure>
 
-                Nos prestations se déroulent en plusieurs étapes : prise de contact initiale, visite systématique du site pour une étude approfondie, évaluation de la faisabilité du projet, et vérification des conditions d'accueil pour nos animaux. Une fois les détails confirmés, nous assurons le transport des animaux vers leur nouveau chez-eux.
+		<div class="homeThird">
+			<p>
+				<h2><b>Comment ça se passe ?</b></h2><br>
+						
+				<h6><b>Nos prestations se déroulent en plusieurs étapes :</b></h6>
 
-                Nous assurons ensuite des visites régulières, adaptées à chaque site, garantissant approvisionnement en eau et en alimentation, et veillant au bien-être de nos protégés. En fonction de la superficie du site et de l'évolution de la végétation, le nombre d'animaux peut être ajusté.
+				<figure class="figure">
+					<img src="{{asset('img/img_article.jpg')}}" alt="Image article" title="Image article" class="figure-img img-fluid rounded">
+					<figcaption class="figure-caption"><i>Description de l'image de l'article</i></figcaption>
+				</figure>
+				
+				Tout d'abord nous avons la prise de contact initiale, qui est suivi d'une visite systématique du site pour une étude approfondie. 
+				<br>
+				Après évaluation de la faisabilité du projet, et la vérification des conditions d'accueil pour nos animaux, si tout est validé, nous assurons le transport des animaux vers leur nouveau chez-eux.
+				<br><br>		
+				Nous assurons ensuite des visites régulières, adaptées à chaque site, garantissant approvisionnement en eau et en alimentation, et veillant au bien-être de nos protégés. En fonction de la superficie du site et de l'évolution de la végétation, le nombre d'animaux peut être ajusté.
+				<br><br>		
+				Lorsque le projet est accompli, nous rapatrions nos protégés vers un nouveau site ou à la maison, tout en prenant soin de retirer les clôtures et autres installations installées au préalable.
+				<br><br>		
+				Nous sommes fiers de partager notre passion pour l'élevage responsable avec vous. N'hésitez pas à nous contacter pour discuter de votre projet. Chez nous, chaque animal compte, et chaque projet est une nouvelle aventure.
+			</p>
+		</div>
 
-                Lorsque le projet est accompli, nous rapatrions nos protégés vers un nouveau site ou à la maison, tout en prenant soin de retirer les clôtures et autres installations.
-
-                Nous sommes fiers de partager notre passion pour l'élevage responsable avec vous. N'hésitez pas à nous contacter pour discuter de votre projet. Chez nous, chaque animal compte, et chaque projet est une nouvelle aventure.
-            </p>
-        </main>
+		<p>Clients actuels</p>
+	</main>
 {% endblock %}

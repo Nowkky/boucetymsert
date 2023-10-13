@@ -14,6 +14,7 @@ async function initMap() {
         zoom: 7,
         center: position,
         mapId: "MAP_ID",
+        
     });
 
     // Le marqueur

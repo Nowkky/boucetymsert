@@ -33,7 +33,7 @@
 		<div class="content">
 						<div class="logoContainer col-12">
 							<a href="{{ path('main_home') }}">
-								<img class="imgLogo" src="{{ asset('img/logo_v2.png') }}" alt="Revenir à l'accueil">
+								<img class="imgLogo" src="{{ asset('img/logo_v2.png') }}" title="Revenir à l'accueil">
 							</a>
 						</div>
 				<header>
@@ -69,29 +69,28 @@
 				{% block body %}{% endblock %}
 		</div>
 			<footer>
-			<div class="container">
-					<br>
-					<div class="footerMain row justify-content-between align-items-center">
-						<div class="col-6 col-md-3">
-							<b>J'ai un bouc et y'm'sert (logo?)</b><br>
-							La baffonderie<br>
-							35370 LE PERTRE<br>
-							Tel: 06 72 24 86 99<br>
-							boucetymsert@orange.fr
-						</div>
+				<div class="container">
+						<br>
+						<div class="footerMain row  align-items-center">
+							<div class="col-6 col-md-4">
+								<b>J'ai un bouc et y'm'sert</b><br>
+								La baffonderie<br>
+								35370 LE PERTRE<br>
+								Tel: 06 72 24 86 99<br>
+								boucetymsert@orange.fr
+							</div>
 
-						<div class="col-6 col-md-3">
-							Copyright&copy; J'ai un bouc et y'm'sert
+							<div class="d-flex flex-column col-6 col-md-4  align-items-center">
+								<img id="imgLogoFooter" src="{{ asset('img/logo_footer.png') }}" title="Revenir à l'accueil">
+								<span>&copy; J'ai un bouc et y'm'sert | 2023</span>
+							</div>
 						</div>
-					</div>
-			</div>
+				</div>
 			</footer>
 
 			<script>
 				(g=>{var h,a,k,p="The Google Maps JavaScript API",c="google",l="importLibrary",q="__ib__",m=document,b=window;b=b[c]||(b[c]={});var d=b.maps||(b.maps={}),r=new Set,e=new URLSearchParams,u=()=>h||(h=new Promise(async(f,n)=>{await (a=m.createElement("script"));e.set("libraries",[...r]+"");for(k in g)e.set(k.replace(/[A-Z]/g,t=>"_"+t[0].toLowerCase()),g[k]);e.set("callback",c+".maps."+q);a.src=`https://maps.${c}apis.com/maps/api/js?`+e;d[q]=f;a.onerror=()=>h=n(Error(p+" could not load."));a.nonce=m.querySelector("script[nonce]")?.nonce||"";m.head.append(a)}));d[l]?console.warn(p+" only loads once. Ignoring:",g):d[l]=(f,...n)=>r.add(f)&&u().then(()=>d[l](f,...n))})({
 					key: "AIzaSyC9aSaZpCmlWITqGMNzIb6hhuKUR6CkJ6A",
-					// Add other bootstrap parameters as needed, using camel case.
-					// Use the 'v' parameter to indicate the version to load (alpha, beta, weekly, etc.)
 				});
 			</script>
 

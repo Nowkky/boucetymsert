@@ -9,34 +9,11 @@ DEPLOIEMENT :
     Mail 
     - Vérifier email d'envoi
     - Changer email d'arrivée
+    - Voir url du site pour le mail mdp oublié
 
-IDEES : 
-    - Témoignages, avis clients
-    - Carte des chantiers réalisés?
-    - Système de demande de devis ?
-
-IDEES :
-
-    - Bouton en haut de la page d'accueil -> Voir nos prestations
-    - Bouton page prestations -> Demandez un devis
-    - Page contact : Nous joindre par message privé (requiert la création d'un compte utilisateur) OU formulaire contact pour être recontacté
-
-    ADMIN:
-        - Modification article en JS et mise en bdd ? Upload image dans ce cas (reprendre sur projet-sortir)
-        - Idem prestations ?
-        - Ajout photos sur page a propos et/ou prestation?
-
-    MESSAGERIE :
-        - Messagerie instantanée comme leboncoin
-        - User averti par mail a la reception d'un nouveau message
-        - Admin connecté ? Ou utilisateur pour l'admin ? A voir avec mercure
-        - Affichage des infos remplies par l'utilisateur
-
-
-    Mettre en forme les mails
-    Voir url du site pour le mail mdp oublié
-
-    AJOUT SUPPRESSION COMPTE RGPD
-    Page informations
 
     NUM D URGENCE PAGE CONTACT
+
+    Roulette avec clients actuels
+
+    Changer footer avec icones maison, telephone, etc
