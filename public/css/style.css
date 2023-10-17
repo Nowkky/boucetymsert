@@ -236,3 +236,17 @@ hr {
 #imgLogoFooter {
     width: 200px;
 }
+
+.picto {
+    height: 1em;
+}
+
+a#mailHome {
+    text-decoration: none;
+    color:#fafafa;
+}
+
+a#mailHome:hover{
+    text-decoration: none;
+    color:#424242;
+}
