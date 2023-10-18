@@ -250,3 +250,32 @@ a#mailHome:hover{
     text-decoration: none;
     color:#424242;
 }
+
+.clientsActuel {
+    overflow-y: auto;
+}
+
+.clientsActuel img{
+    max-height: 6em;
+}
+
+.clientContainer {
+    margin-right: 2em;
+}
+
+#formAjoutClient {
+    display: none;
+}
+
+#ajoutClient {
+    cursor:pointer;
+}
+
+#clients_image {
+    margin-bottom: 2em;
+}
+
+a#supprClient{
+    color:crimson;
+    text-decoration: none;
+}

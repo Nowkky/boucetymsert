@@ -5,18 +5,24 @@
 {% endblock %}
 {% block navHome %}active
 {% endblock %}
+{% block stylesheets %}
+	<link rel="stylesheet" href="{{ asset('css/form.css') }}">
+{% endblock %}
+
 
 {% block body %}
-	{% for message in app.flashes('danger') %}
-		<div class="alert alert-danger">
-			{{ message }}
-		</div>
-	{% endfor %}
-	{% for message in app.flashes('success') %}
-		<div class="alert alert-success">
-			{{ message }}
-		</div>
-	{% endfor %}
+	<div class="container">
+		{% for message in app.flashes('danger') %}
+			<div class="alert alert-danger">
+				{{ message }}
+			</div>
+		{% endfor %}
+		{% for message in app.flashes('success') %}
+			<div class="alert alert-success">
+				{{ message }}
+			</div>
+		{% endfor %}
+	</div>
 	<div
 		class="containerImgNav">
 		{# <!-- Image by upklyakon on Freepik -->
@@ -120,6 +126,54 @@
 			</p>
 		</div>
 
-		<p>Clients actuels</p>
+			<h2 style="text-align:center;color:#8EBC40"><b>Ils nous font confiance !</b></h2>
+		<div class="clientsActuel col-12 d-flex flex-row align-items-center">
+			{% for client in listeClients %}
+				<div class="clientContainer d-flex flex-column justify-content-center align-items-center">
+					<a href="{{ client.url }}"><img src="{{ asset('img/logos/') }}{{ client.image }}" alt="Logo {{ client.name }}" title="Lien vers le site"></a>
+					<h6><b>{{ client.name }}</b></h6>
+
+					
+					{% if is_granted('ROLE_ADMIN') %}
+						<a href="javascript:void(0)" onclick="if(confirm('Voulez-vous vraiment supprimer le client de la frise ?')){window.location='{{ path('app_delete_client', {'id': client.id}) }}';}" id="supprClient">Supprimer</a>
+					{% endif %}
+				</div>
+			{% endfor %}
+
+			
+			
+
+			{% if is_granted('ROLE_ADMIN') %}
+				<img id="ajoutClient" src="{{ asset('img/logos/ajout.png') }}" alt="Ajouter un client" title="Ajouter un client" data-bs-toggle="modal" data-bs-target="#exampleModal">
+			{% endif %}
+
+			<!-- Modal -->
+			<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="modalAjoutClient" aria-hidden="true">
+			<div class="modal-dialog">
+				<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="modalAjoutClient">Ajouter un client</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					{{ form_start(formClients) }}
+						<div class="formAjoutClient">
+							{{ form_widget(formClients.name) }}
+							{{ form_label(formClients.image) }}
+							{{ form_widget(formClients.image) }}
+							{{ form_widget(formClients.url) }}
+						</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-outline-primary" id="btnFermerModal" data-bs-dismiss="modal">Fermer</button>
+						{{ form_widget(formClients) }}
+					<button type="submit" class="btn btn-primary" id="btnAjoutClient" >Ajouter</button>
+					{{ form_end(formClients) }}
+				</div>
+				</div>
+			</div>
+			</div>
+
+		</div>
 	</main>
 {% endblock %}

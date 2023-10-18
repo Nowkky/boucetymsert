@@ -74,7 +74,7 @@ form input[type="text"]::placeholder, form input[type="email"]::placeholder, for
     color: #424242ae;
 }
 
-form button.btn {
+form button.btn, #btnAjoutClient {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1019607843);
     font-family: 'Source Sans Pro', sans-serif;
     margin-bottom: 2em;
@@ -89,7 +89,7 @@ form button.btn {
     --bs-btn-active-border-color: #8EBC40;
 }
 
-form a.btn.btn-outline-primary{
+form a.btn.btn-outline-primary, #btnFermerModal{
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1019607843);
     font-family: 'Source Sans Pro', sans-serif;
     margin-bottom: 2em;
