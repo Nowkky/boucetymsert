@@ -279,3 +279,18 @@ a#supprClient{
     color:crimson;
     text-decoration: none;
 }
+
+img#imgCentrale {
+    height: 600px;
+    width: 100%;
+    object-fit: cover;
+}
+
+#imgArticleAccueil {
+    max-height: 14em;
+    object-fit: fill;
+}
+
+img.imgArticle {
+    max-height: 23em;
+    object-fit: cover;
