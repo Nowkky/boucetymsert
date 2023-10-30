@@ -94,7 +94,10 @@
 							<button class="btn btn-primary">Valider</button>
 						</div>
 						<div class="d-grid col-12 col-md-4 mx-auto">
-							<a href="javascript:void(0)" onclick="if(confirm('Voulez-vous vraiment supprimer votre compte ?')){window.location='{{ path('delete_account', {'id': app.user.id}) }}';}" class="btn btn-outline-danger">Supprimer mon compte</a>
+							<a href="javascript:void(0)" onclick="if(confirm('Voulez-vous vraiment supprimer votre compte ?'))
+							{window.location='{{ path('delete_account', {'id': app.user.id}) }}';}" class="btn btn-outline-danger">
+								Supprimer mon compte
+							</a>
 						</div>
 					</div>
 						{{ form_end(formInfos) }}

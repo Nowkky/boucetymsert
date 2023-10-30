@@ -3,8 +3,7 @@
 {% block title %}
 	{{ parent() }}
 {% endblock %}
-{% block navHome %}active
-{% endblock %}
+{% block navHome %}active{% endblock %}
 {% block stylesheets %}
 	<link rel="stylesheet" href="{{ asset('css/form.css') }}">
 {% endblock %}
@@ -25,11 +24,6 @@
 	</div>
 	<div
 		class="containerImgNav">
-		{# <!-- Image by upklyakon on Freepik -->
-				            <img id="imgUnderNav" src="{{ asset('img/img_sous_nav2.jpg') }}" alt="img sous nav">
-				            <div class="textImgNav">
-				                <p id="imgNavTitle">L'éco-pâturage, pensez-y !</p>
-				            </div> #}
 		<div id="divUnderNav"></div>
 	</div>
 
@@ -120,8 +114,8 @@
 			</p>
 		</div>
 
-			<h2 style="text-align:center;color:#8EBC40"><b>Ils nous font confiance !</b></h2>
-		<div class="clientsActuel col-12 d-flex flex-row align-items-center">
+			<h2 style="text-align:center;color:#8EBC40;margin-bottom:1em;margin-top:4em"><b>Ils nous font confiance !</b></h2>
+		<div class="clientsActuel col-12 d-flex flex-row align-items-center justify-content-center">
 			{% for client in listeClients %}
 				<div class="clientContainer d-flex flex-column justify-content-center align-items-center">
 					<a href="{{ client.url }}"><img src="{{ asset('img/logos/') }}{{ client.image }}" alt="Logo {{ client.name }}" title="Lien vers le site"></a>

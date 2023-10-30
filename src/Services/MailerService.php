@@ -3,12 +3,12 @@
 namespace App\Services;
 
 use Symfony\Component\Mailer\MailerInterface;
-Use Symfony\Component\Mime\Email;
+use Symfony\Component\Mime\Email;
 
 class MailerService
 {
-    public function __construct (private MailerInterface $mailer) {
-
+    public function __construct(private MailerInterface $mailer)
+    {
     }
 
     public function sendEmail(
@@ -16,7 +16,7 @@ class MailerService
         $subject = 'Sujet du message',
         $content = '',
         $text = ''
-    ): void{
+    ): void {
         $email = (new Email())
             ->from('noreply@boucetymsert.fr')
             ->to($to)

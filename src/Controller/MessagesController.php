@@ -22,9 +22,6 @@ class MessagesController extends AbstractController
     {
         if ($this->IsGranted("ROLE_USER")) {
             $user = $this->getUser();
-            $repoUser = $entityManager->getRepository(User::class);
-            $repoMessages = $entityManager->getRepository(Messages::class);
-            $repoConversation = $entityManager->getRepository(Conversation::class);
 
             //Vérification si une conversation existe avec cet utilisateur, si non, la créé
             if ($user->getConversation() != null) {

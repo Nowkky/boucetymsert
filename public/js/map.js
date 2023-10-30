@@ -4,9 +4,7 @@ async function initMap() {
     //Position de l'entreprise
     const position = { lat: 48.0, lng: -1.0278 };
 
-    // Request needed libraries.
-    //@ts-ignore
-    //Position de l'entreprise
+    //Importation de la librairie
     const { Map } = await google.maps.importLibrary("maps");
 
     //Création de la carte
@@ -49,7 +47,8 @@ async function initMap() {
     });
     
     const contentString =
-    'En rouge : jusqu\'à 80KM pour les nouveau clients<br>En vert : idéalement jusqu\'à 40KM';
+    'En rouge : jusqu\'à 80KM pour les nouveau clients<br>' + 
+    'En vert : idéalement jusqu\'à 40KM';
 
     const infowindow = new google.maps.InfoWindow({
         content: contentString,

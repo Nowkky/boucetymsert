@@ -55,7 +55,7 @@ class ChangeInfosType extends AbstractType
                 'attr' => ['placeholder' => 'Téléphone'],
                 'constraints' => [
                     new Regex([
-                        'pattern' => '^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$^', 
+                        'pattern' => '/^(?:(?:\+|00)33[\s.-]{0,3}(?:\(0\)[\s.-]{0,3})?|0)[1-9](?:(?:[\s.-]?\d{2}){4}|\d{2}(?:[\s.-]?\d{3}){2})$/', 
                         'message' => 'Votre numéro de téléphone n\'est pas valide (chiffres de 0-9 et 10 caractères min.)'
                     ]),
                     new Length([

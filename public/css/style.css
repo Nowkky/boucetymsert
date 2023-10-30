@@ -1,9 +1,13 @@
 /*** couleurs
 * blanc cassé : #fafafa
-* vert : #91b06f / #8EBC40
+* vert : #8EBC40
 * noir : #424242
 */
 
+
+/*
+** base.html.twig **
+*/
 body {
     font-family: 'Source Sans Pro', sans-serif;
 }
@@ -96,48 +100,9 @@ hr {
     background-color: #8EBC40;
 }
 
-/* #imgUnderNav {
-    width: 100%;
-    max-height: 30vh;
-    object-fit: cover;
-    pointer-events: none;
-}
-
-.textImgNav {
-    position: absolute;
-    max-width: 60%;
-    text-align: center;
-    text-shadow: #424242 1px 0 10px;
-}
-
-.containerImgNav img {
-    filter:blur(4px);
-}
-
-.containerImgNav {
-    position: relative;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    color:#424242;
-} */
-
 #imgNavTitle {
     font-size: 3vw;
     font-weight: bold;
-}
-
-.articleHome {
-    color:#424242;
-}
-
-.articleHome img {
-    width: 100%;
-}
-
-.articleHome h2 {
-    font-weight: bold;
-    color: #8EBC40;
 }
 
 .dropdown-item {
@@ -154,13 +119,39 @@ hr {
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1019607843);
  }
 
- .bodyCheckEmail {
-    min-height: 80vh;;
-    padding-bottom: 10em;
- }
+ #imgLogoFooter {
+    width: 200px;
+}
 
-.articleText {
-    text-align: justify;
+.picto {
+    height: 1em;
+}
+
+a#mailHome {
+    text-decoration: none;
+    color:#fafafa;
+}
+
+a#mailHome:hover{
+    text-decoration: none;
+    color:#424242;
+}
+
+
+/*
+** about.html.twig
+*/
+.articleHome {
+    color:#424242;
+}
+
+.articleHome img {
+    width: 100%;
+}
+
+.articleHome h2 {
+    font-weight: bold;
+    color: #8EBC40;
 }
 
 .btn-devis {
@@ -179,13 +170,28 @@ hr {
     --bs-btn-active-border-color: #8EBC40;
 }
 
+
+/*
+** index.html.twig
+*/
+
+#imgArticleAccueil {
+    max-height: 14em;
+    object-fit: fill;
+}
+
+img.imgArticle {
+    max-height: 23em;
+    object-fit: cover;
+}
+
+.articleText {
+    text-align: justify;
+}
+
 #map {
     height: 250px;
     width: 100%;
-}
-
-.footerSpace {
-    height: 10em;
 }
 
 .carousel-item img {
@@ -233,23 +239,6 @@ hr {
     padding-bottom: 1em;
 }
 
-#imgLogoFooter {
-    width: 200px;
-}
-
-.picto {
-    height: 1em;
-}
-
-a#mailHome {
-    text-decoration: none;
-    color:#fafafa;
-}
-
-a#mailHome:hover{
-    text-decoration: none;
-    color:#424242;
-}
 
 .clientsActuel {
     overflow-y: auto;
@@ -286,11 +275,17 @@ img#imgCentrale {
     object-fit: cover;
 }
 
-#imgArticleAccueil {
-    max-height: 14em;
-    object-fit: fill;
-}
 
-img.imgArticle {
-    max-height: 23em;
-    object-fit: cover;
+
+/*
+** autre
+*/
+
+.bodyCheckEmail {
+    min-height: 80vh;;
+    padding-bottom: 10em;
+ }
+
+ .footerSpace {
+    height: 10em;
+}

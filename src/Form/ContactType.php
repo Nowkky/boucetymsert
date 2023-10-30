@@ -47,7 +47,7 @@ class ContactType extends AbstractType
             'required' => true,
             'attr' => ['placeholder' => 'Adresse mail*']
         ])
-        ->add('phone', TelType::class,
+        ->add('phone', TextType::class,
         [
             'required' => false,
             'attr' => ['placeholder' => 'Téléphone']
